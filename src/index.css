@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #1E1B4B;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  /* ─── Text ─────────────────────────────────────── */
+  .text-shadow {
+    text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ─── Shadows (card-like raised look) ──────────── */
+  .card-shadow {
+    box-shadow:
+      0 8px 0px rgba(0, 0, 0, 0.28),
+      0 14px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-press {
+    box-shadow: 0 5px 0px rgba(0, 0, 0, 0.30);
+    transition: box-shadow 0.08s ease, transform 0.08s ease;
+  }
+
+  .btn-press:active {
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.30);
+    transform: translateY(3px);
+  }
+
+  /* ─── Background texture ────────────────────────── */
+  .field-bg {
+    background-color: #1E1B4B;
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
+      radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.18) 0%, transparent 55%),
+      radial-gradient(circle at 50% 50%, rgba(163, 230, 53, 0.06) 0%, transparent 65%);
+  }
+}
