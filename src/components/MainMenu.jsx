@@ -187,7 +187,7 @@ export default function MainMenu({ quizzes, onSelectQuiz }) {
 
         <div className="mt-4 px-5 py-2 rounded-full bg-indigo-700/60 border border-indigo-500/40 backdrop-blur-sm">
           <p className="text-indigo-200 text-sm font-body font-bold tracking-wide">
-            Choose your quiz, Coach! 🏃
+            Pick a quiz and let's play! 🥏
           </p>
         </div>
       </div>
