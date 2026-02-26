@@ -31,7 +31,7 @@ export const quizzes = [
     title: 'Quiz 1: The Basics & Our League',
     description: 'Rules, gear, and how we play!',
     emoji: '🥏',
-    questionCount: 12,
+    questionCount: 11,
     estimatedMinutes: 6,
     comingSoon: false,
     questions: [
@@ -123,14 +123,6 @@ export const quizzes = [
         correctIndex: 3,
         coachTip:
           'The Pull starts every point — one team pulls (throws) to the other to begin play.',
-      },
-      {
-        id: 9,
-        question: 'What do we call it when a team catches the disc in the end zone?',
-        options: ['A Touchdown', 'A Score', 'A Goal', 'A Point'],
-        correctIndex: 1,
-        coachTip:
-          "In Ultimate we say 'Score!' — not touchdown or goal. It's our sport's own lingo!",
       },
       {
         id: 10,
