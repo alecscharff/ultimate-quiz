@@ -31,7 +31,7 @@ export const quizzes = [
     title: 'Quiz 1: The Basics & Our League',
     description: 'Rules, gear, and how we play!',
     emoji: '🥏',
-    questionCount: 11,
+    questionCount: 10,
     estimatedMinutes: 6,
     comingSoon: false,
     questions: [
@@ -104,19 +104,6 @@ export const quizzes = [
           'Out of bounds = turnover. Keep your throws in the field!',
       },
       {
-        id: 7,
-        question: 'What disc do we use?',
-        options: [
-          '175g Discraft Ultrastar',
-          '150g Innova Disc',
-          '200g Frisbee Pro',
-          'Any disc you like',
-        ],
-        correctIndex: 0,
-        coachTip:
-          'The 175g Discraft Ultrastar is the official disc of Ultimate — it flies smooth and straight.',
-      },
-      {
         id: 8,
         question: 'What is the opening throw called?',
         options: ['The Kick', 'The Launch', 'The Toss', 'The Pull'],
@@ -171,8 +158,8 @@ export const quizzes = [
   // ──────────────────────────────────────────────────────────────────────────
   {
     id: 'advanced',
-    title: 'Quiz 2: Advanced Plays',
-    description: 'Stacks, cuts, and defensive strategies — coming soon!',
+    title: 'Quiz 2',
+    description: 'Coming soon? Maybe! 🤷',
     emoji: '🏆',
     questionCount: 10,
     estimatedMinutes: 5,
