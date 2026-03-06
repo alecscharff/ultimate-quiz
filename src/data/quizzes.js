@@ -161,35 +161,22 @@ export const quizzes = [
     title: 'Quiz 2: Before Your First Game',
     description: 'Essential rules for game day!',
     emoji: '🏆',
-    questionCount: 13,
-    estimatedMinutes: 8,
+    questionCount: 10,
+    estimatedMinutes: 6,
     comingSoon: false,
     questions: [
       {
         id: 1,
         question: 'You just caught the disc while running. What must you do?',
         options: [
-          'Keep running to get closer before you stop',
+          'Keep running to get closer to the end zone before you stop',
           'Stop running and plant one foot as your pivot foot',
-          'Put the disc under your shirt and run to the end zone',
+          'Hide the disc under your shirt and sneak away',
           'Spike the disc and do a celebratory dance',
         ],
         correctIndex: 1,
         coachTip:
           'No running with the disc! Once you catch it, stop and plant a pivot foot. You can spin and look around — but that one foot must stay put.',
-      },
-      {
-        id: 2,
-        question: 'What is your pivot foot?',
-        options: [
-          'The foot you prefer to kick with',
-          'Either foot — but whichever you choose must stay planted while you hold the disc',
-          'Your back foot, always',
-          'You can shuffle both feet as long as you stay in place',
-        ],
-        correctIndex: 1,
-        coachTip:
-          'Pick a foot and keep it glued to the ground. You can pivot (rotate) your whole body on it — just never drag or lift it while holding the disc.',
       },
       {
         id: 3,
@@ -203,19 +190,6 @@ export const quizzes = [
         correctIndex: 2,
         coachTip:
           'Any time the disc touches the ground — dropped catch, bad throw, anything — the other team takes possession where it landed.',
-      },
-      {
-        id: 4,
-        question: 'The other team is pulling (throwing off) to you. You\'re not sure you can catch it. What\'s the smart play?',
-        options: [
-          'Go for it — you probably have it!',
-          'Step out of bounds so neither team gets it',
-          'Let it land — dropping the pull is a turnover, so only go for it if you\'re sure',
-          'Wave your arms so the pull is re-done',
-        ],
-        correctIndex: 2,
-        coachTip:
-          'If you attempt to catch the pull and drop it, the other team gets the disc right there. If you let it land, your team picks it up where it stops. When in doubt, let it drop!',
       },
       {
         id: 5,
@@ -281,19 +255,6 @@ export const quizzes = [
         correctIndex: 1,
         coachTip:
           'When a foul is accepted, the disc returns to the fouled player. The defender "checks" it in by touching it, then play restarts. No free yards — just a fair do-over!',
-      },
-      {
-        id: 10,
-        question: 'An opponent knocks the disc out of your hands while you\'re holding it. Is that allowed?',
-        options: [
-          'Yes — if they only use one finger',
-          'Yes — stripping the disc is a legal defensive move',
-          'No — knocking the disc from someone\'s hand is a foul',
-          'Only if the stall count is below 5',
-        ],
-        correctIndex: 2,
-        coachTip:
-          'You can\'t "strip" the disc out of someone\'s grip — that\'s a foul. Defenders must wait for the disc to leave the thrower\'s hand before they can go for it.',
       },
       {
         id: 11,
