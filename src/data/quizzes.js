@@ -171,7 +171,7 @@ export const quizzes = [
         options: [
           'Keep running to get closer before you stop',
           'Stop running and plant one foot as your pivot foot',
-          'But the disc under your shirt and run to the end zone',
+          'Put the disc under your shirt and run to the end zone',
           'Spike the disc and do a celebratory dance',
         ],
         correctIndex: 1,
