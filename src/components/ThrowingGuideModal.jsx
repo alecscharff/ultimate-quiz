@@ -1,10 +1,12 @@
 // ThrowingGuideModal — GSWAP quick-reference guide for the Backhand Throw.
 // Triggered before the quiz starts and via the "Study Guide" button during it.
 
-function GuideImage({ src, alt, className = '' }) {
+const base = import.meta.env.BASE_URL
+
+function GuideImage({ file, alt, className = '' }) {
   return (
     <img
-      src={src}
+      src={`${base}${file}`}
       alt={alt}
       className={`w-full rounded-xl object-contain ${className}`}
       loading="lazy"
@@ -26,7 +28,7 @@ const STEPS = [
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1.5">
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
-              <GuideImage src="/grip%20view%20from%20top.png" alt="Grip view from top — thumb on top of disc" />
+              <GuideImage file="grip-top.png" alt="Grip view from top — thumb on top of disc" />
             </div>
             <p className="font-display text-xs text-indigo-700 text-center">Thumb on top</p>
             <p className="font-body text-xs text-gray-500 text-center leading-snug">
@@ -35,7 +37,7 @@ const STEPS = [
           </div>
           <div className="flex flex-col gap-1.5">
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
-              <GuideImage src="/grip%20view%20from%20under.png" alt="Grip view from underneath — fingers curled under rim" />
+              <GuideImage file="grip-under.png" alt="Grip view from underneath — fingers curled under rim" />
             </div>
             <p className="font-display text-xs text-indigo-700 text-center">Fingers under the rim</p>
             <p className="font-body text-xs text-gray-500 text-center leading-snug">
@@ -57,7 +59,7 @@ const STEPS = [
       <div className="flex gap-3 items-start">
         <div className="flex-shrink-0 w-28">
           <div className="bg-white rounded-xl border-2 border-lime-200 p-1.5">
-            <GuideImage src="/side-on-stance.png" alt="Side-on throwing stance illustration" />
+            <GuideImage file="side-on-stance.png" alt="Side-on throwing stance illustration" />
           </div>
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
@@ -76,7 +78,7 @@ const STEPS = [
     body: (
       <>
         <div className="bg-white rounded-xl border-2 border-yellow-200 p-2 mb-3">
-          <GuideImage src="/wris-%20snap.png" alt="Wrist snap motion diagram" className="max-h-32" />
+          <GuideImage file="wrist-snap.png" alt="Wrist snap motion diagram" className="max-h-32" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           <strong>Load:</strong> bend your wrist toward your body as your arm swings.{' '}
@@ -95,7 +97,7 @@ const STEPS = [
       <div className="flex gap-3 items-start">
         <div className="flex-shrink-0 w-28">
           <div className="bg-white rounded-xl border-2 border-orange-200 overflow-hidden">
-            <GuideImage src="/flat-angle.png" alt="Player releasing disc flat" className="object-cover aspect-square" />
+            <GuideImage file="flat-angle.png" alt="Player releasing disc flat" className="object-cover aspect-square" />
           </div>
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
@@ -113,7 +115,7 @@ const STEPS = [
     body: (
       <>
         <div className="bg-white rounded-xl border-2 border-pink-200 p-2 mb-3">
-          <GuideImage src="/point-hand-at-target.png" alt="Follow-through — point hand at target diagram" className="max-h-44" />
+          <GuideImage file="point-hand-at-target.png" alt="Follow-through — point hand at target diagram" className="max-h-44" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           After you release, keep your arm swinging forward and{' '}
