@@ -256,6 +256,7 @@ export default function QuizEngine({ quiz, onExit }) {
   const [questionsQueue, setQuestionsQueue] = useState(quiz.questions)
   const [isRetakeMode,   setIsRetakeMode]   = useState(false)
 
+  const [started,       setStarted]       = useState(!quiz.hasGuide) // intro screen for guided quizzes
   const [currentIndex,  setCurrentIndex]  = useState(0)
   const [selectedIndex, setSelectedIndex] = useState(null)
   const [showModal,     setShowModal]     = useState(false)
@@ -300,6 +301,72 @@ export default function QuizEngine({ quiz, onExit }) {
     setScore(0)
     setAnswers([])
     setShowResults(false)
+  }
+
+  // ── Pre-quiz intro (guided quizzes only) ────────────────────────────────
+  if (!started) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
+        <div className="w-full max-w-md">
+          {/* Back link */}
+          <button
+            onClick={onExit}
+            className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-200 transition-colors font-body font-bold text-sm mb-6 w-fit"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Menu
+          </button>
+
+          <div className="bg-white rounded-3xl overflow-hidden card-shadow animate-bounce-in">
+            <div className="h-3 bg-indigo-600" />
+            <div className="p-7 sm:p-9 text-center">
+              <div className="text-6xl mb-3" role="img" aria-label={quiz.emoji}>
+                {quiz.emoji}
+              </div>
+              <h1 className="font-display text-2xl text-[#1E1B4B] mb-1">{quiz.title}</h1>
+              <p className="font-body text-indigo-400 text-sm mb-6">{quiz.description}</p>
+
+              <div className="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 mb-6 text-left">
+                <p className="font-display text-indigo-700 text-sm mb-1">
+                  This is an open-book quiz!
+                </p>
+                <p className="font-body text-indigo-500 text-xs leading-relaxed">
+                  Review the study guide before you start — or anytime during the quiz using the
+                  button in the top corner. It covers all 5 checkpoints your coach will test.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => setShowGuide(true)}
+                  className="w-full py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-display text-xl transition-colors btn-press flex items-center justify-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Open Study Guide
+                </button>
+                <button
+                  onClick={() => setStarted(true)}
+                  className="w-full py-4 rounded-2xl bg-lime-400 hover:bg-lime-300 text-[#1E1B4B] font-display text-xl transition-colors btn-press"
+                >
+                  Start Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {showGuide && (
+          <ThrowingGuideModal
+            onClose={() => { setShowGuide(false); setStarted(true) }}
+            startLabel="Got it — I'm ready to start!"
+          />
+        )}
+      </div>
+    )
   }
 
   // ── Results screen ──────────────────────────────────────────────────────

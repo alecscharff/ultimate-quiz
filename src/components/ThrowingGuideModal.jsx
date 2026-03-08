@@ -1,34 +1,50 @@
-// ThrowingGuideModal — GSWAP quick-reference guide for the Backhand Throw
-// Shown before or during Quiz 3 via a "Study Guide" button.
-// Drop grip-basic.jpg and grip-power.jpg into /public to enable the photos.
+// ThrowingGuideModal — GSWAP quick-reference guide for the Backhand Throw.
+// Triggered before the quiz starts and via the "Study Guide" button during it.
+
+function GuideImage({ src, alt, className = '' }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`w-full rounded-xl object-contain ${className}`}
+      loading="lazy"
+    />
+  )
+}
 
 const STEPS = [
   {
     letter: 'G',
     word: 'Grip',
-    color: 'bg-indigo-600',
-    lightColor: 'bg-indigo-50',
-    borderColor: 'border-indigo-200',
-    textColor: 'text-indigo-700',
+    accent: 'indigo',
     body: (
       <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed">
-          Start by making a fist around the edge of the disc. There are two grips to try:
+        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
+          Start with a fist around the edge of the disc. There are two grips — try both and use
+          whichever feels most firm and comfortable.
         </p>
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          <GripCard
-            label="Basic Grip"
-            description="Index finger along the rim, middle finger underneath or curled under, thumb on top."
-            imgSrc="/grip-basic.jpg"
-          />
-          <GripCard
-            label="Power Grip"
-            description="All fingers curled under the rim for extra power. Thumb still on top."
-            imgSrc="/grip-power.jpg"
-          />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-col gap-1.5">
+            <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
+              <GuideImage src="/grip%20view%20from%20top.png" alt="Grip view from top — thumb on top of disc" />
+            </div>
+            <p className="font-display text-xs text-indigo-700 text-center">Thumb on top</p>
+            <p className="font-body text-xs text-gray-500 text-center leading-snug">
+              Index finger along the rim, thumb resting flat on top.
+            </p>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
+              <GuideImage src="/grip%20view%20from%20under.png" alt="Grip view from underneath — fingers curled under rim" />
+            </div>
+            <p className="font-display text-xs text-indigo-700 text-center">Fingers under the rim</p>
+            <p className="font-body text-xs text-gray-500 text-center leading-snug">
+              Middle finger (and others) curl under the rim for control.
+            </p>
+          </div>
         </div>
-        <p className="font-body text-xs text-gray-500 mt-2 italic">
-          Try both and use whichever feels most comfortable and firm.
+        <p className="font-body text-xs text-gray-400 mt-2 italic text-center">
+          The disc should feel firm — not floppy.
         </p>
       </>
     ),
@@ -36,99 +52,89 @@ const STEPS = [
   {
     letter: 'S',
     word: 'Stance',
-    color: 'bg-lime-500',
-    lightColor: 'bg-lime-50',
-    borderColor: 'border-lime-200',
-    textColor: 'text-lime-700',
+    accent: 'lime',
     body: (
-      <p className="font-body text-sm text-gray-700 leading-relaxed">
-        Turn <strong>side-on</strong> so your throwing arm is closer to your target. Imagine a line
-        running from your back shoulder, through your throwing shoulder, and straight out to where
-        you want the disc to go. Your throwing arm starts relaxed in front of your body, ready to
-        swing. Keep your knees slightly bent and weight balanced.
-      </p>
+      <div className="flex gap-3 items-start">
+        <div className="flex-shrink-0 w-28">
+          <div className="bg-white rounded-xl border-2 border-lime-200 p-1.5">
+            <GuideImage src="/side-on-stance.png" alt="Side-on throwing stance illustration" />
+          </div>
+        </div>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          Turn <strong>side-on</strong> with your throwing arm closer to the target. Imagine a line
+          from your back shoulder, through your throwing shoulder, out to where you want the disc to
+          go. Start with your throwing arm relaxed in front, ready to swing. Knees slightly bent,
+          weight balanced.
+        </p>
+      </div>
     ),
   },
   {
     letter: 'W',
     word: 'Wrist',
-    color: 'bg-yellow-500',
-    lightColor: 'bg-yellow-50',
-    borderColor: 'border-yellow-200',
-    textColor: 'text-yellow-700',
+    accent: 'yellow',
     body: (
-      <p className="font-body text-sm text-gray-700 leading-relaxed">
-        <strong>Load:</strong> bend your wrist toward your body as your arm swings back.{' '}
-        <strong>Snap:</strong> at the moment of release, snap your wrist away from your body. That
-        snap is what puts spin on the disc — and <em>spin is vital</em>. A disc with good spin flies
-        flat and straight. No snap = wobbly throw that goes nowhere.
-      </p>
+      <>
+        <div className="bg-white rounded-xl border-2 border-yellow-200 p-2 mb-3">
+          <GuideImage src="/wris-%20snap.png" alt="Wrist snap motion diagram" className="max-h-32" />
+        </div>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          <strong>Load:</strong> bend your wrist toward your body as your arm swings.{' '}
+          <strong>Snap:</strong> at the moment of release, snap your wrist away from your body.
+          That snap puts spin on the disc — and <em>spin is vital</em>. No snap = wobbly throw that
+          goes nowhere.
+        </p>
+      </>
     ),
   },
   {
     letter: 'A',
     word: 'Angle',
-    color: 'bg-orange-500',
-    lightColor: 'bg-orange-50',
-    borderColor: 'border-orange-200',
-    textColor: 'text-orange-700',
+    accent: 'orange',
     body: (
-      <p className="font-body text-sm text-gray-700 leading-relaxed">
-        The disc should leave your hand <strong>flat</strong> — or very slightly nose-down. The
-        angle at release is the angle it flies. Nose-up sends the disc high and far off target.
-        As you get more comfortable, try tilting slightly to see how it changes the flight path.
-      </p>
+      <div className="flex gap-3 items-start">
+        <div className="flex-shrink-0 w-28">
+          <div className="bg-white rounded-xl border-2 border-orange-200 overflow-hidden">
+            <GuideImage src="/flat-angle.png" alt="Player releasing disc flat" className="object-cover aspect-square" />
+          </div>
+        </div>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          The disc should leave your hand <strong>flat</strong> — or very slightly nose-down. The
+          angle at release is the angle it flies. Nose-up sends it high and far off target.
+          As you improve, experiment with tilt to see how it curves the flight path.
+        </p>
+      </div>
     ),
   },
   {
     letter: 'P',
     word: 'Point',
-    color: 'bg-pink-500',
-    lightColor: 'bg-pink-50',
-    borderColor: 'border-pink-200',
-    textColor: 'text-pink-700',
+    accent: 'pink',
     body: (
-      <p className="font-body text-sm text-gray-700 leading-relaxed">
-        After you release, keep your arm swinging forward and{' '}
-        <strong>point your hand at your target</strong>. Don&apos;t stop the motion at your wrist.
-        Think of throwing <em>through</em> the target, not just <em>to</em> it. Full follow-through
-        = full power + full accuracy.
-      </p>
+      <>
+        <div className="bg-white rounded-xl border-2 border-pink-200 p-2 mb-3">
+          <GuideImage src="/point-hand-at-target.png" alt="Follow-through — point hand at target diagram" className="max-h-44" />
+        </div>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          After you release, keep your arm swinging forward and{' '}
+          <strong>point your hand at your target</strong>. Don&apos;t stop the motion at your wrist.
+          Think of throwing <em>through</em> the target, not just <em>to</em> it. Full
+          follow-through = full power + full accuracy.
+        </p>
+      </>
     ),
   },
 ]
 
-function GripCard({ label, description, imgSrc }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="w-full aspect-square rounded-xl overflow-hidden bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center">
-        <img
-          src={imgSrc}
-          alt={label}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.style.display = 'none'
-            e.target.nextSibling.style.display = 'flex'
-          }}
-        />
-        {/* Shown only if image fails to load */}
-        <div
-          className="hidden w-full h-full items-center justify-center flex-col gap-1 p-2"
-          aria-hidden="true"
-        >
-          <span className="text-3xl">🤚</span>
-          <span className="font-body text-xs text-indigo-400 text-center leading-tight">
-            {label} photo
-          </span>
-        </div>
-      </div>
-      <p className="font-display text-xs text-indigo-700 text-center">{label}</p>
-      <p className="font-body text-xs text-gray-500 text-center leading-snug">{description}</p>
-    </div>
-  )
+const ACCENT = {
+  indigo: { header: 'bg-indigo-600', light: 'bg-indigo-50', border: 'border-indigo-200' },
+  lime:   { header: 'bg-lime-500',   light: 'bg-lime-50',   border: 'border-lime-200'   },
+  yellow: { header: 'bg-yellow-500', light: 'bg-yellow-50', border: 'border-yellow-200' },
+  orange: { header: 'bg-orange-500', light: 'bg-orange-50', border: 'border-orange-200' },
+  pink:   { header: 'bg-pink-500',   light: 'bg-pink-50',   border: 'border-pink-200'   },
 }
 
-export default function ThrowingGuideModal({ onClose }) {
+export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — back to the quiz!' }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
@@ -144,15 +150,22 @@ export default function ThrowingGuideModal({ onClose }) {
       />
 
       {/* Sheet */}
-      <div className="relative w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl overflow-hidden card-shadow flex flex-col max-h-[90vh]">
+      <div className="relative w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl overflow-hidden card-shadow flex flex-col max-h-[92vh]">
 
         {/* Header */}
         <div className="bg-indigo-600 px-6 py-4 flex items-center justify-between flex-shrink-0">
           <div>
             <p className="font-display text-white text-xl leading-none">Backhand Throw</p>
-            <p className="font-body text-indigo-300 text-sm mt-0.5">
-              G · S · W · A · P quick guide
-            </p>
+            <div className="flex gap-1.5 mt-1.5">
+              {STEPS.map(({ letter, accent }) => (
+                <span
+                  key={letter}
+                  className={`${ACCENT[accent].header} font-display text-white text-xs w-6 h-6 rounded-lg flex items-center justify-center`}
+                >
+                  {letter}
+                </span>
+              ))}
+            </div>
           </div>
           <button
             onClick={onClose}
@@ -167,33 +180,33 @@ export default function ThrowingGuideModal({ onClose }) {
 
         {/* Scrollable content */}
         <div className="overflow-y-auto flex-1 px-5 py-5 space-y-4">
-          {STEPS.map(({ letter, word, color, lightColor, borderColor, textColor, body }) => (
-            <div
-              key={letter}
-              className={`rounded-2xl border-2 ${borderColor} ${lightColor} overflow-hidden`}
-            >
-              <div className={`${color} px-4 py-2 flex items-center gap-2`}>
-                <span className="font-display text-white text-2xl leading-none w-7 text-center">
-                  {letter}
-                </span>
-                <span className="font-display text-white text-base">{word}</span>
+          {STEPS.map(({ letter, word, accent, body }) => {
+            const { header, light, border } = ACCENT[accent]
+            return (
+              <div key={letter} className={`rounded-2xl border-2 ${border} ${light} overflow-hidden`}>
+                <div className={`${header} px-4 py-2 flex items-center gap-2`}>
+                  <span className="font-display text-white text-2xl leading-none w-7 text-center">
+                    {letter}
+                  </span>
+                  <span className="font-display text-white text-base">{word}</span>
+                </div>
+                <div className="px-4 py-3">{body}</div>
               </div>
-              <div className="px-4 py-3">{body}</div>
-            </div>
-          ))}
+            )
+          })}
 
-          <p className="font-body text-xs text-gray-400 text-center pb-2">
+          <p className="font-body text-xs text-gray-400 text-center pb-1">
             This is an open-book quiz — refer back anytime!
           </p>
         </div>
 
-        {/* Sticky close button */}
+        {/* Sticky close/start button */}
         <div className="flex-shrink-0 px-5 pb-5 pt-3 border-t border-gray-100">
           <button
             onClick={onClose}
             className="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-display text-lg transition-colors btn-press"
           >
-            Got it — back to the quiz!
+            {startLabel}
           </button>
         </div>
       </div>
