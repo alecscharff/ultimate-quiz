@@ -1,8 +1,8 @@
 /**
  * quizzes.js — Central data file for all Wedgwood Ultimate quizzes.
  *
- * To add Quiz 3 (or any future quiz), just push a new object into this array
- * following the same shape. App.jsx will pick it up automatically.
+ * To add a new quiz, push a new object into this array.
+ * App.jsx and MainMenu.jsx pick it up automatically — no code changes needed.
  *
  * Shape:
  *   id            – unique string key
@@ -12,6 +12,8 @@
  *   questionCount – number shown on the card (update if questions change)
  *   estimatedMinutes
  *   comingSoon    – if true, card is grayed-out / non-clickable
+ *   hasGuide      – if true, a "Study Guide" button appears during the quiz
+ *   certLevel     – if set, shows the certification submission on the results screen
  *   questions     – array of question objects (see below)
  *
  * Question shape:
@@ -184,7 +186,7 @@ export const quizzes = [
         options: [
           'The thrower gets one more try',
           'Whoever touches it first keeps it',
-          'The other team gets the disc — it\'s a turnover',
+          "The other team gets the disc — it's a turnover",
           'The point restarts from the end zone',
         ],
         correctIndex: 2,
@@ -193,7 +195,8 @@ export const quizzes = [
       },
       {
         id: 5,
-        question: 'An opponent bumps into you while you\'re trying to catch the disc, causing you to drop it. What do you do?',
+        question:
+          "An opponent bumps into you while you're trying to catch the disc, causing you to drop it. What do you do?",
         options: [
           'Bump them back — they started it',
           'Run off the field to tell a grown-up',
@@ -219,9 +222,10 @@ export const quizzes = [
       },
       {
         id: 7,
-        question: 'Can you use your body to box out or bump an opponent away from the disc?',
+        question:
+          'Can you use your body to box out or bump an opponent away from the disc?',
         options: [
-          'Yes, as long as you don\'t use your hands',
+          "Yes, as long as you don't use your hands",
           'Yes, if you get there first',
           'No — ultimate is a non-contact sport',
           'Only when the disc is in the air',
@@ -245,7 +249,8 @@ export const quizzes = [
       },
       {
         id: 9,
-        question: 'You call "Foul!" on the defender. They agree it was a foul. What happens to the disc?',
+        question:
+          'You call "Foul!" on the defender. They agree it was a foul. What happens to the disc?',
         options: [
           'You throw it from where you are standing right now',
           'The disc comes back to you and play resumes with a check',
@@ -267,33 +272,192 @@ export const quizzes = [
         ],
         correctIndex: 3,
         coachTip:
-          'Turnovers happen four main ways: stall count hits 10, disc goes out of bounds, disc hits the ground, or the defense catches your throw. Any of those = other team\'s disc!',
+          "Turnovers happen four main ways: stall count hits 10, disc goes out of bounds, disc hits the ground, or the defense catches your throw. Any of those = other team's disc!",
       },
       {
         id: 12,
-        question: 'Your teammate drops a catch right at the other team\'s end zone. What should you do?',
+        question:
+          "Your teammate drops a catch right at the other team's end zone. What should you do?",
         options: [
           'Shake your head at them so they know they messed up',
           'Stay quiet — they already feel bad enough',
-          'Shout "Shake it off! Next one!" and keep playing hard',
+          '"Shake it off! Next one!" and keep playing hard',
           'Ask the coach to substitute them out',
         ],
         correctIndex: 2,
         coachTip:
-          'Everyone drops one. Spirit of the Game means lifting your teammates up, not tearing them down. A quick "shake it off!" keeps the whole team\'s energy high — and that\'s what wins games.',
+          "Everyone drops one. Spirit of the Game means lifting your teammates up, not tearing them down. A quick 'shake it off!' keeps the whole team's energy high — and that's what wins games.",
       },
       {
         id: 13,
-        question: 'You catch the disc, but you realize your foot landed out of bounds. Nobody else noticed. What do you do?',
+        question:
+          'You catch the disc, but you realize your foot landed out of bounds. Nobody else noticed. What do you do?',
         options: [
-          'Play on — if no one saw it, it didn\'t count',
+          "Play on — if no one saw it, it didn't count",
           'Wait and see if the other team says something',
           'Call it on yourself: "Out of bounds — their disc"',
           'Ask your coach from the sideline to decide',
         ],
         correctIndex: 2,
         coachTip:
-          'In ultimate, YOU are the referee. Spirit of the Game means calling it honestly even when it hurts — even on yourself. That\'s what makes ultimate special.',
+          "In ultimate, YOU are the referee. Spirit of the Game means calling it honestly even when it hurts — even on yourself. That's what makes ultimate special.",
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // QUIZ 3 — Backhand Throw: Level 1 Certification Prep
+  // hasGuide     → shows "Study Guide" button during the quiz
+  // certLevel    → shows certification submission on results screen
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'throwing',
+    title: 'Quiz 3: The Backhand Throw',
+    description: 'Level 1 cert prep — G·S·W·A·P!',
+    emoji: '🤚',
+    questionCount: 10,
+    estimatedMinutes: 6,
+    comingSoon: false,
+    hasGuide: true,
+    certLevel: 'Level 1 – Backhand Throw',
+    questions: [
+      // ── G: Grip ───────────────────────────────────────────────────────────
+      {
+        id: 1,
+        question:
+          'For a backhand throw, where does your index finger go on the disc?',
+        options: [
+          'Flat on top of the disc',
+          'Along the rim (edge) of the disc',
+          'Curled under the center',
+          'Wrapped around the outside edge',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Index finger along the rim, middle finger underneath or curled under, thumb on top. The disc should feel firm — not floppy!',
+      },
+      {
+        id: 2,
+        question: 'Where does your thumb go in the backhand grip?',
+        options: [
+          'Curled under the rim with the other fingers',
+          'Along the outside edge',
+          'On top of the disc',
+          'Tucked under your palm',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Thumb on top — always. Fingers under the rim, thumb on top. This locks the disc in place and gives you a clean, controlled release!',
+      },
+      // ── S: Stance ─────────────────────────────────────────────────────────
+      {
+        id: 3,
+        question:
+          'For a backhand throw, which way should your body be facing when you release?',
+        options: [
+          'Directly at your target, chest square to it',
+          'With your back to the target',
+          'Side-on, throwing arm closer to the target',
+          'Facing sideways AWAY from the target',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Turn sideways so your throwing arm is closer to the target. This lets your arm swing freely — like a spring that loads up and releases!',
+      },
+      {
+        id: 4,
+        question: 'Which foot is your pivot foot on a backhand throw?',
+        options: [
+          'Your front foot (opposite side from your throwing hand)',
+          'The back foot — same side as your throwing hand',
+          'Whichever foot you planted last',
+          "It doesn't matter which foot",
+        ],
+        correctIndex: 1,
+        coachTip:
+          'The back foot — same side as your throwing hand — stays planted the whole throw. Lifting it is a travel in a real game!',
+      },
+      // ── W: Wrist ──────────────────────────────────────────────────────────
+      {
+        id: 5,
+        question: 'What does your wrist do at the START of a backhand throw?',
+        options: [
+          'Snaps away from your body immediately',
+          'Stays completely still throughout',
+          'Bends toward your body first to load up',
+          'Rotates in a full circle',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Load it first! Bend the wrist toward your body to load up, then snap it away at release. That loading motion is where your power and spin come from.',
+      },
+      {
+        id: 6,
+        question: 'What does snapping your wrist AWAY from your body do for the throw?',
+        options: [
+          'Makes the throw go higher',
+          'Slows the disc down for easier catching',
+          'Makes the disc spin — and spin keeps it flying straight',
+          'Changes which direction the disc curves',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Spin is VITAL. No spin = wobbly disc that goes nowhere. A sharp wrist snap at release gives the disc the spin it needs to fly flat and on target!',
+      },
+      // ── A: Angle ──────────────────────────────────────────────────────────
+      {
+        id: 7,
+        question: 'How should the disc be angled when it leaves your hand?',
+        options: [
+          'Tilted nose-up for more height and distance',
+          'Flat, or very slightly nose-down',
+          'Tilted sharply to the side for a curve',
+          'Nose-up to float over defenders',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Flat (or slightly nose-down) = straight flight. Nose-up sends the disc high and far off target. When in doubt, keep it flat!',
+      },
+      {
+        id: 8,
+        question: 'What happens if you release the disc nose-up?',
+        options: [
+          'It flies straight and far to your target',
+          'It curves to the right every time',
+          'It goes high and lands far off target',
+          'It drops to the ground immediately',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Nose-up = trouble. The disc catches air, balloons up, then falls way short. Aim flat — or just a tiny bit nose-down!',
+      },
+      // ── P: Point (Follow-through) ──────────────────────────────────────────
+      {
+        id: 9,
+        question: 'What should you do with your arm AFTER the disc leaves your hand?',
+        options: [
+          'Pull your arm back to your side quickly',
+          'Stop your arm right at the wrist snap',
+          'Let your arm drop naturally',
+          'Extend your arm fully and point toward your target',
+        ],
+        correctIndex: 3,
+        coachTip:
+          "Don't stop at the release! Extend your arm and point at your target. The follow-through locks in your aim and transfers full power into the throw.",
+      },
+      {
+        id: 10,
+        question:
+          'Why does stopping your throwing motion early hurt your throw?',
+        options: [
+          'It makes the defender think you are still throwing',
+          'The disc veers off target and you lose power',
+          "It's just bad style — it doesn't really affect the throw",
+          'It protects your shoulder from injury',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Throw THROUGH the target, not just to it. Cutting the motion short bleeds off power and accuracy. Full follow-through = full throw!',
       },
     ],
   },

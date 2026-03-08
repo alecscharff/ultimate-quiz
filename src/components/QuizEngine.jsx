@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ProgressBar from './ProgressBar'
 import FeedbackModal from './FeedbackModal'
+import ThrowingGuideModal from './ThrowingGuideModal'
 
 // ─── Letter labels for the four answer buttons ───────────────────────────────
 const LETTERS = ['A', 'B', 'C', 'D']
@@ -72,11 +73,38 @@ function AnswerButton({ label, letterIndex, selected, isCorrect, revealed, onCli
   )
 }
 
+const SHEETS_URL = import.meta.env.VITE_SHEETS_URL ?? 'https://script.google.com/macros/s/AKfycbydyhgZnqJgJLloO4kcMvhx4L6t3Q_TksrhuynJVFhkewsea1O25hwTWvPF8vioybsf/exec'
+
 // ─── Results screen ───────────────────────────────────────────────────────────
-function ResultsScreen({ score, total, answers, isRetakeMode, onRetakeWrong, onExit }) {
+function ResultsScreen({ score, total, answers, isRetakeMode, onRetakeWrong, onExit, certLevel, quizTitle }) {
   const { message, emoji, colorClass } = getScoreMessage(score, total)
-  const pct       = Math.round((score / total) * 100)
+  const pct        = Math.round((score / total) * 100)
   const wrongCount = answers.filter((a) => !a).length
+
+  const [name,        setName]        = useState('')
+  const [submitState, setSubmitState] = useState('idle') // idle | loading | done | error
+
+  async function handleCertSubmit() {
+    if (!SHEETS_URL || submitState !== 'idle') return
+    setSubmitState('loading')
+    try {
+      await fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim() || 'Anonymous',
+          quizTitle,
+          certLevel,
+          score,
+          total,
+        }),
+      })
+      setSubmitState('done')
+    } catch {
+      setSubmitState('error')
+    }
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
@@ -147,6 +175,48 @@ function ResultsScreen({ score, total, answers, isRetakeMode, onRetakeWrong, onE
               ))}
             </div>
 
+            {/* ── Certification submission (Quiz 3+) ───────────────────── */}
+            {certLevel && (
+              <div className="mb-5 rounded-2xl bg-indigo-50 border-2 border-indigo-200 p-4 text-left">
+                <p className="font-display text-base text-[#1E1B4B] mb-1">
+                  🎓 Ready to attempt certification?
+                </p>
+                <p className="font-body text-xs text-indigo-500 mb-3">
+                  {certLevel} — let your coach know you want to be tested!
+                </p>
+
+                {submitState === 'done' ? (
+                  <p className="font-display text-lime-600 text-sm text-center py-2">
+                    ✓ Your coach has been notified. Nice work!
+                  </p>
+                ) : (
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Your name (optional)"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      maxLength={40}
+                      className="flex-1 min-w-0 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 font-body text-sm text-[#1E1B4B] placeholder-indigo-300 focus:outline-none focus:border-indigo-400"
+                    />
+                    <button
+                      onClick={handleCertSubmit}
+                      disabled={submitState === 'loading'}
+                      className="flex-shrink-0 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-display text-sm transition-colors duration-150 btn-press disabled:opacity-60"
+                    >
+                      {submitState === 'loading' ? '...' : "I'm Ready!"}
+                    </button>
+                  </div>
+                )}
+
+                {submitState === 'error' && (
+                  <p className="font-body text-xs text-orange-500 mt-2">
+                    Something went wrong — ask your coach to note it manually.
+                  </p>
+                )}
+              </div>
+            )}
+
             {/* ── Action buttons ───────────────────────────────────────── */}
             <div className="flex flex-col gap-3">
               {/* Retake wrong — only shown when there are misses */}
@@ -192,6 +262,7 @@ export default function QuizEngine({ quiz, onExit }) {
   const [score,         setScore]         = useState(0)
   const [answers,       setAnswers]       = useState([]) // boolean per question
   const [showResults,   setShowResults]   = useState(false)
+  const [showGuide,     setShowGuide]     = useState(false)
 
   const question  = questionsQueue[currentIndex]
   const isLast    = currentIndex === questionsQueue.length - 1
@@ -241,6 +312,8 @@ export default function QuizEngine({ quiz, onExit }) {
         isRetakeMode={isRetakeMode}
         onRetakeWrong={handleRetakeWrong}
         onExit={onExit}
+        certLevel={quiz.certLevel}
+        quizTitle={quiz.title}
       />
     )
   }
@@ -249,17 +322,32 @@ export default function QuizEngine({ quiz, onExit }) {
   return (
     <div className="min-h-screen flex flex-col px-4 py-6 max-w-lg mx-auto">
 
-      {/* Back to menu */}
-      <button
-        onClick={onExit}
-        className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-200 transition-colors font-body font-bold text-sm mb-6 w-fit"
-        aria-label="Back to main menu"
-      >
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Menu
-      </button>
+      {/* Top bar: back button + optional guide button */}
+      <div className="flex items-center justify-between mb-6">
+        <button
+          onClick={onExit}
+          className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-200 transition-colors font-body font-bold text-sm w-fit"
+          aria-label="Back to main menu"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Menu
+        </button>
+
+        {quiz.hasGuide && (
+          <button
+            onClick={() => setShowGuide(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-indigo-200 hover:text-white font-body font-bold text-sm transition-colors"
+            aria-label="Open study guide"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Study Guide
+          </button>
+        )}
+      </div>
 
       {/* Quiz title + optional retake banner */}
       <div className="mb-4">
@@ -318,6 +406,9 @@ export default function QuizEngine({ quiz, onExit }) {
           isLast={isLast}
         />
       )}
+
+      {/* Study guide modal */}
+      {showGuide && <ThrowingGuideModal onClose={() => setShowGuide(false)} />}
     </div>
   )
 }
