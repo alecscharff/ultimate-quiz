@@ -27,26 +27,26 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Start with a fist around the edge of the disc. There are two grips — try both and use
-          whichever feels most firm and comfortable.
+          Start from a fist around the edge of the disc. All fingers curl under the rim — try both
+          grips and use whichever feels most firm and comfortable.
         </p>
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1.5">
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
-              <GuideImage src={imgGripTop} alt="Grip view from top — thumb on top of disc" />
+              <GuideImage src={imgGripUnder} alt="Fingers curled under the rim" />
             </div>
-            <p className="font-display text-xs text-indigo-700 text-center">Thumb on top</p>
+            <p className="font-display text-xs text-indigo-700 text-center">Fingers curled under</p>
             <p className="font-body text-xs text-gray-500 text-center leading-snug">
-              Index finger along the rim, thumb resting flat on top.
+              Index finger along the edge, all fingers curled under the rim.
             </p>
           </div>
           <div className="flex flex-col gap-1.5">
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
-              <GuideImage src={imgGripUnder} alt="Grip view from underneath — fingers curled under rim" />
+              <GuideImage src={imgGripTop} alt="Thumb on top of disc" />
             </div>
-            <p className="font-display text-xs text-indigo-700 text-center">Fingers under the rim</p>
+            <p className="font-display text-xs text-indigo-700 text-center">Thumb on top</p>
             <p className="font-body text-xs text-gray-500 text-center leading-snug">
-              Middle finger (and others) curl under the rim for control.
+              Thumb rests flat on top — always.
             </p>
           </div>
         </div>
@@ -68,10 +68,11 @@ const STEPS = [
           </div>
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          Turn <strong>side-on</strong> with your throwing arm closer to the target. Imagine a line
-          from your back shoulder, through your throwing shoulder, out to where you want the disc to
-          go. Start with your throwing arm relaxed in front, ready to swing. Knees slightly bent,
-          weight balanced.
+          Turn <strong>side-on</strong> so your <strong>throwing shoulder points toward the
+          target</strong>. Imagine a line from your back shoulder, through your throwing shoulder,
+          straight to where you want the disc to go. Your front foot (throwing-arm side) steps
+          toward the target; your back foot is the <strong>pivot</strong> — it stays planted.
+          Knees slightly bent, weight balanced.
         </p>
       </div>
     ),
@@ -86,10 +87,9 @@ const STEPS = [
           <GuideImage src={imgWrist} alt="Wrist snap motion diagram" className="max-h-32" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          <strong>Load:</strong> bend your wrist toward your body as your arm swings.{' '}
-          <strong>Snap:</strong> at the moment of release, snap your wrist away from your body.
-          That snap puts spin on the disc — and <em>spin is vital</em>. No snap = wobbly throw that
-          goes nowhere.
+          Start with your wrist <strong>curled in</strong> toward your body. As you release, snap
+          it away. That snap puts spin on the disc — and <em>spin is vital</em>. No snap = no spin
+          = wobbly throw that goes nowhere.
         </p>
       </>
     ),
@@ -123,9 +123,9 @@ const STEPS = [
           <GuideImage src={imgPoint} alt="Follow-through — point hand at target diagram" className="max-h-44" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          After you release, keep your arm swinging forward and{' '}
-          <strong>point your hand at your target</strong>. Don&apos;t stop the motion at your wrist.
-          Think of throwing <em>through</em> the target, not just <em>to</em> it. Full
+          <strong>As you release</strong>, keep your arm swinging forward and point your hand at
+          your target. The follow-through is part of the throw — not something that happens after
+          it. Think of throwing <em>through</em> the target, not just <em>to</em> it. Full
           follow-through = full power + full accuracy.
         </p>
       </>

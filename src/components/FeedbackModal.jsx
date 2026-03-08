@@ -22,7 +22,7 @@ const CONFETTI_COLORS = ['#A3E635', '#818CF8', '#F472B6', '#FB923C', '#34D399', 
  *   onNext       – () => void
  *   isLast       – boolean (changes button label)
  */
-export default function FeedbackModal({ isCorrect, coachTip, correctAnswer, onNext, isLast }) {
+export default function FeedbackModal({ isCorrect, coachTip, tipImage, correctAnswer, onNext, isLast }) {
   const [confetti, setConfetti] = useState([])
 
   // Spawn confetti on correct answers
@@ -125,6 +125,13 @@ export default function FeedbackModal({ isCorrect, coachTip, correctAnswer, onNe
                 <p className="text-gray-700 text-sm font-body font-semibold leading-relaxed">
                   {coachTip}
                 </p>
+                {tipImage && (
+                  <img
+                    src={tipImage}
+                    alt="Visual tip"
+                    className="mt-3 w-full rounded-xl object-contain max-h-40"
+                  />
+                )}
               </div>
             </div>
           </div>

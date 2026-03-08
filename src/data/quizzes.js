@@ -328,13 +328,14 @@ export const quizzes = [
           'For a backhand throw, where does your index finger go on the disc?',
         options: [
           'Flat on top of the disc',
-          'Along the rim (edge) of the disc',
-          'Curled under the center',
-          'Wrapped around the outside edge',
+          'Curled under the rim with the other fingers',
+          'Curled under the center of the disc',
+          'Wrapped around the outside edge only',
         ],
         correctIndex: 1,
+        tipImageKey: 'grip-under',
         coachTip:
-          'Index finger along the rim, middle finger underneath or curled under, thumb on top. The disc should feel firm — not floppy!',
+          'All fingers curl under the rim — index finger along the edge, others underneath. Start from a fist around the edge and you\'ve got it!',
       },
       {
         id: 2,
@@ -346,63 +347,68 @@ export const quizzes = [
           'Tucked under your palm',
         ],
         correctIndex: 2,
+        tipImageKey: 'grip-top',
         coachTip:
-          'Thumb on top — always. Fingers under the rim, thumb on top. This locks the disc in place and gives you a clean, controlled release!',
+          'Thumb on top — always. Fingers curled under the rim, thumb resting flat on top. The disc should feel firm, not floppy!',
       },
       // ── S: Stance ─────────────────────────────────────────────────────────
       {
         id: 3,
         question:
-          'For a backhand throw, which way should your body be facing when you release?',
+          'For a backhand throw, which way should your body face?',
         options: [
-          'Directly at your target, chest square to it',
-          'With your back to the target',
-          'Side-on, throwing arm closer to the target',
-          'Facing sideways AWAY from the target',
+          'Chest square to your target',
+          'With your back toward the target',
+          'Side-on, throwing shoulder pointing toward the target',
+          'Facing sideways away from the target',
         ],
         correctIndex: 2,
+        tipImageKey: 'stance',
         coachTip:
-          'Turn sideways so your throwing arm is closer to the target. This lets your arm swing freely — like a spring that loads up and releases!',
+          'Turn side-on so your throwing shoulder points toward the target. This lets your arm swing freely — like a spring that loads up and releases!',
       },
       {
         id: 4,
-        question: 'Which foot is your pivot foot on a backhand throw?',
+        question: 'Which foot is the pivot foot on a backhand throw?',
         options: [
-          'Your front foot (opposite side from your throwing hand)',
-          'The back foot — same side as your throwing hand',
+          'Your front foot — same side as your throwing arm',
+          'Your back foot — the opposite side from your throwing arm',
           'Whichever foot you planted last',
           "It doesn't matter which foot",
         ],
         correctIndex: 1,
+        tipImageKey: 'stance',
         coachTip:
-          'The back foot — same side as your throwing hand — stays planted the whole throw. Lifting it is a travel in a real game!',
+          'Your front foot (throwing-arm side) steps toward the target — your back foot (opposite side) is the pivot and stays planted. Lifting it is a travel!',
       },
       // ── W: Wrist ──────────────────────────────────────────────────────────
       {
         id: 5,
-        question: 'What does your wrist do at the START of a backhand throw?',
+        question: 'Before you release, how is your wrist positioned?',
         options: [
-          'Snaps away from your body immediately',
-          'Stays completely still throughout',
-          'Bends toward your body first to load up',
-          'Rotates in a full circle',
+          'Snapped straight out away from your body',
+          'Flat and relaxed — no bend at all',
+          'Curled in toward your body',
+          'Bent backward behind your wrist',
         ],
         correctIndex: 2,
+        tipImageKey: 'wrist',
         coachTip:
-          'Load it first! Bend the wrist toward your body to load up, then snap it away at release. That loading motion is where your power and spin come from.',
+          'Wrist curled in toward your body to start — then snap it out at release. That snap is what puts spin on the disc, and spin is what keeps it flying straight!',
       },
       {
         id: 6,
-        question: 'What does snapping your wrist AWAY from your body do for the throw?',
+        question: 'What does snapping your wrist away from your body do?',
         options: [
           'Makes the throw go higher',
           'Slows the disc down for easier catching',
-          'Makes the disc spin — and spin keeps it flying straight',
+          'Puts spin on the disc — and spin keeps it flying straight',
           'Changes which direction the disc curves',
         ],
         correctIndex: 2,
+        tipImageKey: 'wrist',
         coachTip:
-          'Spin is VITAL. No spin = wobbly disc that goes nowhere. A sharp wrist snap at release gives the disc the spin it needs to fly flat and on target!',
+          'Spin is VITAL. No snap = no spin = wobbly throw that goes nowhere. Wrist curled in to start, then snap it out at the moment of release!',
       },
       // ── A: Angle ──────────────────────────────────────────────────────────
       {
@@ -415,8 +421,9 @@ export const quizzes = [
           'Nose-up to float over defenders',
         ],
         correctIndex: 1,
+        tipImageKey: 'angle',
         coachTip:
-          'Flat (or slightly nose-down) = straight flight. Nose-up sends the disc high and far off target. When in doubt, keep it flat!',
+          'Flat (or slightly nose-down) = straight flight. Nose-up sends it high and far off target. When in doubt, keep it flat!',
       },
       {
         id: 8,
@@ -428,22 +435,24 @@ export const quizzes = [
           'It drops to the ground immediately',
         ],
         correctIndex: 2,
+        tipImageKey: 'angle',
         coachTip:
           'Nose-up = trouble. The disc catches air, balloons up, then falls way short. Aim flat — or just a tiny bit nose-down!',
       },
       // ── P: Point (Follow-through) ──────────────────────────────────────────
       {
         id: 9,
-        question: 'What should you do with your arm AFTER the disc leaves your hand?',
+        question: 'As you release the disc, what should your arm do?',
         options: [
-          'Pull your arm back to your side quickly',
-          'Stop your arm right at the wrist snap',
-          'Let your arm drop naturally',
-          'Extend your arm fully and point toward your target',
+          'Pull back to your side quickly',
+          'Stop right at the wrist snap',
+          'Drop naturally once the disc is gone',
+          'Continue swinging forward — extend and point toward your target',
         ],
         correctIndex: 3,
+        tipImageKey: 'point',
         coachTip:
-          "Don't stop at the release! Extend your arm and point at your target. The follow-through locks in your aim and transfers full power into the throw.",
+          'As the disc leaves your hand, keep your arm swinging forward and point at your target. The follow-through is part of the throw — not something that happens after it!',
       },
       {
         id: 10,
@@ -452,10 +461,11 @@ export const quizzes = [
         options: [
           'It makes the defender think you are still throwing',
           'The disc veers off target and you lose power',
-          "It's just bad style — it doesn't really affect the throw",
+          "It's just bad style — it doesn't affect the throw",
           'It protects your shoulder from injury',
         ],
         correctIndex: 1,
+        tipImageKey: 'point',
         coachTip:
           'Throw THROUGH the target, not just to it. Cutting the motion short bleeds off power and accuracy. Full follow-through = full throw!',
       },

@@ -3,6 +3,22 @@ import ProgressBar from './ProgressBar'
 import FeedbackModal from './FeedbackModal'
 import ThrowingGuideModal from './ThrowingGuideModal'
 
+import imgGripTop   from '../assets/grip-top.png'
+import imgGripUnder from '../assets/grip-under.png'
+import imgStance    from '../assets/side-on-stance.png'
+import imgWrist     from '../assets/wrist-snap.png'
+import imgAngle     from '../assets/flat-angle.png'
+import imgPoint     from '../assets/point-hand-at-target.png'
+
+const TIP_IMAGES = {
+  'grip-top':   imgGripTop,
+  'grip-under': imgGripUnder,
+  'stance':     imgStance,
+  'wrist':      imgWrist,
+  'angle':      imgAngle,
+  'point':      imgPoint,
+}
+
 // ─── Letter labels for the four answer buttons ───────────────────────────────
 const LETTERS = ['A', 'B', 'C', 'D']
 
@@ -468,6 +484,7 @@ export default function QuizEngine({ quiz, onExit }) {
         <FeedbackModal
           isCorrect={isCorrect}
           coachTip={question.coachTip}
+          tipImage={question.tipImageKey ? TIP_IMAGES[question.tipImageKey] : null}
           correctAnswer={question.options[question.correctIndex]}
           onNext={handleNext}
           isLast={isLast}
