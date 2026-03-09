@@ -434,8 +434,8 @@ export default function QuizEngine({ quiz, onExit }) {
   return (
     <div className="min-h-screen flex flex-col px-4 py-6 max-w-lg mx-auto">
 
-      {/* Top bar: back button + optional guide button */}
-      <div className="flex items-center justify-between mb-6">
+      {/* Top bar: back button */}
+      <div className="flex items-center mb-6">
         <button
           onClick={onExit}
           className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-200 transition-colors font-body font-bold text-sm w-fit"
@@ -446,23 +446,6 @@ export default function QuizEngine({ quiz, onExit }) {
           </svg>
           Back to Menu
         </button>
-
-        {quiz.hasGuide && (
-          <button
-            ref={guideButtonRef}
-            onClick={() => {
-              setGuideButtonRect(guideButtonRef.current?.getBoundingClientRect() ?? null)
-              setShowGuide(true)
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-indigo-200 hover:text-white font-body font-bold text-sm transition-colors"
-            aria-label="Open study guide"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            Study Guide
-          </button>
-        )}
       </div>
 
       {/* Quiz title + optional retake banner */}
@@ -510,6 +493,23 @@ export default function QuizEngine({ quiz, onExit }) {
             />
           ))}
         </div>
+
+        {/* Study guide nudge — only before an answer is picked */}
+        {quiz.hasGuide && selectedIndex === null && (
+          <button
+            ref={guideButtonRef}
+            onClick={() => {
+              setGuideButtonRect(guideButtonRef.current?.getBoundingClientRect() ?? null)
+              setShowGuide(true)
+            }}
+            className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-500 hover:text-indigo-700 font-body font-bold text-sm transition-colors"
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Not sure? Check the study guide
+          </button>
+        )}
       </div>
 
       {/* Feedback modal */}
