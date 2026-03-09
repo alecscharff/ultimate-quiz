@@ -70,8 +70,7 @@ const STEPS = [
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           Turn <strong>side-on</strong> so your <strong>throwing shoulder points toward the
-          target</strong>. Imagine a line from your back shoulder, through your throwing shoulder,
-          straight to where you want the disc to go. Your front foot (throwing-arm side) steps
+          target</strong>. Your front foot (throwing-arm side) steps
           toward the target; your back foot is the <strong>pivot</strong> — it stays planted.
           Knees slightly bent, weight balanced.
         </p>
