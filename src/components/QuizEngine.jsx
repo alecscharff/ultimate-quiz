@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import ProgressBar from './ProgressBar'
 import FeedbackModal from './FeedbackModal'
 import ThrowingGuideModal from './ThrowingGuideModal'
@@ -294,6 +294,8 @@ export default function QuizEngine({ quiz, onExit }) {
   const [answers,       setAnswers]       = useState([]) // boolean per question
   const [showResults,   setShowResults]   = useState(false)
   const [showGuide,     setShowGuide]     = useState(false)
+  const [guideButtonRect, setGuideButtonRect] = useState(null)
+  const guideButtonRef = useRef(null)
 
   const question  = questionsQueue[currentIndex]
   const isLast    = currentIndex === questionsQueue.length - 1
@@ -447,7 +449,11 @@ export default function QuizEngine({ quiz, onExit }) {
 
         {quiz.hasGuide && (
           <button
-            onClick={() => setShowGuide(true)}
+            ref={guideButtonRef}
+            onClick={() => {
+              setGuideButtonRect(guideButtonRef.current?.getBoundingClientRect() ?? null)
+              setShowGuide(true)
+            }}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-indigo-200 hover:text-white font-body font-bold text-sm transition-colors"
             aria-label="Open study guide"
           >
@@ -519,7 +525,7 @@ export default function QuizEngine({ quiz, onExit }) {
       )}
 
       {/* Study guide modal */}
-      {showGuide && <ThrowingGuideModal onClose={() => setShowGuide(false)} />}
+      {showGuide && <ThrowingGuideModal onClose={() => setShowGuide(false)} targetRect={guideButtonRect} />}
     </div>
   )
 }

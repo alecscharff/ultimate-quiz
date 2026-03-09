@@ -1,6 +1,7 @@
 // ThrowingGuideModal — GSWAP quick-reference guide for the Backhand Throw.
 // Triggered before the quiz starts and via the "Study Guide" button during it.
 
+import { useRef, useState } from 'react'
 import imgGripTop    from '../assets/grip-top.png'
 import imgGripUnder  from '../assets/grip-under.png'
 import imgStance     from '../assets/side-on-stance.png'
@@ -141,7 +142,35 @@ const ACCENT = {
   pink:   { header: 'bg-pink-500',   light: 'bg-pink-50',   border: 'border-pink-200'   },
 }
 
-export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — back to the quiz!' }) {
+export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — back to the quiz!', targetRect = null }) {
+  const sheetRef  = useRef(null)
+  const [closing, setClosing]   = useState(false)
+  const [exitStyle, setExitStyle] = useState({})
+
+  function handleClose() {
+    if (closing) return
+    if (targetRect && sheetRef.current) {
+      const sheet = sheetRef.current.getBoundingClientRect()
+      const tx = (targetRect.left + targetRect.width  / 2) - (sheet.left + sheet.width  / 2)
+      const ty = (targetRect.top  + targetRect.height / 2) - (sheet.top  + sheet.height / 2)
+      setExitStyle({
+        transform: `translate(${tx}px, ${ty}px) scale(0.05)`,
+        opacity: 0,
+        transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease-in',
+        pointerEvents: 'none',
+      })
+    } else {
+      setExitStyle({
+        transform: 'scale(0.05)',
+        opacity: 0,
+        transition: 'transform 0.3s ease-in, opacity 0.25s ease-in',
+        pointerEvents: 'none',
+      })
+    }
+    setClosing(true)
+    setTimeout(onClose, 360)
+  }
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
@@ -151,13 +180,18 @@ export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — b
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-[#1E1B4B]/80 backdrop-blur-sm"
-        onClick={onClose}
+        className="absolute inset-0 bg-[#1E1B4B]/80 backdrop-blur-sm transition-opacity duration-300"
+        style={{ opacity: closing ? 0 : undefined }}
+        onClick={handleClose}
         aria-hidden="true"
       />
 
       {/* Sheet */}
-      <div className="relative w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl overflow-hidden card-shadow flex flex-col max-h-[92vh]">
+      <div
+        ref={sheetRef}
+        style={exitStyle}
+        className="relative w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl overflow-hidden card-shadow flex flex-col max-h-[92vh]"
+      >
 
         {/* Header */}
         <div className="bg-indigo-600 px-6 py-4 flex items-center justify-between flex-shrink-0">
@@ -175,7 +209,7 @@ export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — b
             </div>
           </div>
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="w-9 h-9 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
             aria-label="Close guide"
           >
@@ -210,7 +244,7 @@ export default function ThrowingGuideModal({ onClose, startLabel = 'Got it — b
         {/* Sticky close/start button */}
         <div className="flex-shrink-0 px-5 pb-5 pt-3 border-t border-gray-100">
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-display text-lg transition-colors btn-press"
           >
             {startLabel}
