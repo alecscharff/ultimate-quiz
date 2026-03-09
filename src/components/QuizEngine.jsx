@@ -22,6 +22,20 @@ const TIP_IMAGES = {
 // ─── Letter labels for the four answer buttons ───────────────────────────────
 const LETTERS = ['A', 'B', 'C', 'D']
 
+// ─── Shuffle options while keeping correctIndex accurate ─────────────────────
+function shuffleOptions(question) {
+  const indices = [0, 1, 2, 3]
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]]
+  }
+  return {
+    ...question,
+    options: indices.map((i) => question.options[i]),
+    correctIndex: indices.indexOf(question.correctIndex),
+  }
+}
+
 // ─── Scoring helpers ─────────────────────────────────────────────────────────
 function getScoreMessage(score, total) {
   if (score === total) {
@@ -269,7 +283,7 @@ function ResultsScreen({ score, total, answers, isRetakeMode, onRetakeWrong, onE
 export default function QuizEngine({ quiz, onExit }) {
   // questionsQueue is the active set — starts as the full quiz, becomes the
   // wrong-answers subset after the player hits "Practice Missed Questions".
-  const [questionsQueue, setQuestionsQueue] = useState(quiz.questions)
+  const [questionsQueue, setQuestionsQueue] = useState(() => quiz.questions.map(shuffleOptions))
   const [isRetakeMode,   setIsRetakeMode]   = useState(false)
 
   const [started,       setStarted]       = useState(!quiz.hasGuide) // intro screen for guided quizzes
@@ -308,7 +322,7 @@ export default function QuizEngine({ quiz, onExit }) {
 
   // Restart with only the questions the player missed
   function handleRetakeWrong() {
-    const wrongQuestions = questionsQueue.filter((_, i) => !answers[i])
+    const wrongQuestions = questionsQueue.filter((_, i) => !answers[i]).map(shuffleOptions)
     setQuestionsQueue(wrongQuestions)
     setIsRetakeMode(true)
     setCurrentIndex(0)
@@ -364,6 +378,19 @@ export default function QuizEngine({ quiz, onExit }) {
                   </svg>
                   Open Study Guide
                 </button>
+                {quiz.videoUrl && (
+                  <a
+                    href={quiz.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 rounded-2xl bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-display text-xl transition-colors btn-press flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    Watch a tutorial video
+                  </a>
+                )}
                 <button
                   onClick={() => setStarted(true)}
                   className="w-full py-4 rounded-2xl bg-lime-400 hover:bg-lime-300 text-[#1E1B4B] font-display text-xl transition-colors btn-press"

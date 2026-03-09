@@ -320,22 +320,22 @@ export const quizzes = [
     comingSoon: false,
     hasGuide: true,
     certLevel: 'Level 1 – Backhand Throw',
+    videoUrl: 'https://youtu.be/LFGaW1moL4k?si=W5Tj34PYcBx9aUJz',
     questions: [
       // ── G: Grip ───────────────────────────────────────────────────────────
       {
         id: 1,
-        question:
-          'For a backhand throw, where does your index finger go on the disc?',
+        question: 'For a backhand throw, where do your fingers go on the disc?',
         options: [
-          'Flat on top of the disc',
-          'Curled under the rim with the other fingers',
-          'Curled under the center of the disc',
-          'Wrapped around the outside edge only',
+          'Curled under the rim',
+          'Making a peace sign along the top',
+          'Fingers crossed over the disc',
+          'Spread wide like a high-five on top',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         tipImageKey: 'grip-under',
         coachTip:
-          'All fingers curl under the rim — index finger along the edge, others underneath. Start from a fist around the edge and you\'ve got it!',
+          'All four fingers curl under the rim — index finger along the edge, the rest underneath. Start with a fist around the edge and you\'ve got it!',
       },
       {
         id: 2,
@@ -354,13 +354,12 @@ export const quizzes = [
       // ── S: Stance ─────────────────────────────────────────────────────────
       {
         id: 3,
-        question:
-          'For a backhand throw, which way should your body face?',
+        question: 'For a backhand throw, which way should your body face?',
         options: [
           'Chest square to your target',
           'With your back toward the target',
           'Side-on, throwing shoulder pointing toward the target',
-          'Facing sideways away from the target',
+          'Low on the ground, hiding from your target',
         ],
         correctIndex: 2,
         tipImageKey: 'stance',
@@ -369,27 +368,42 @@ export const quizzes = [
       },
       {
         id: 4,
-        question: 'Which foot is the pivot foot on a backhand throw?',
+        question:
+          'Which foot is the pivot foot? (Your pivot foot must STAY PLANTED the whole time you hold the disc!)',
         options: [
           'Your front foot — same side as your throwing arm',
-          'Your back foot — the opposite side from your throwing arm',
+          'Your back foot — opposite side from your throwing arm',
           'Whichever foot you planted last',
           "It doesn't matter which foot",
         ],
         correctIndex: 1,
         tipImageKey: 'stance',
         coachTip:
-          'Your front foot (throwing-arm side) steps toward the target — your back foot (opposite side) is the pivot and stays planted. Lifting it is a travel!',
+          'Your back foot (opposite your throwing arm) is the pivot — it stays glued to the ground. Lift it while holding the disc and that\'s a travel!',
+      },
+      {
+        id: 5,
+        question: 'Which foot steps toward your target as you throw a backhand?',
+        options: [
+          'Your front foot — same side as your throwing arm',
+          'Your back foot — opposite side from your throwing arm',
+          'Both feet stay planted the whole time',
+          "Either foot — it doesn't matter",
+        ],
+        correctIndex: 0,
+        tipImageKey: 'stance',
+        coachTip:
+          'Step toward your target with your front foot (throwing-arm side). That step loads up your power and helps aim the disc right where you want it!',
       },
       // ── W: Wrist ──────────────────────────────────────────────────────────
       {
-        id: 5,
-        question: 'Before you release, how is your wrist positioned?',
+        id: 6,
+        question: 'As you start your throw, how is your wrist positioned?',
         options: [
           'Snapped straight out away from your body',
           'Flat and relaxed — no bend at all',
           'Curled in toward your body',
-          'Bent backward behind your wrist',
+          'Bent up towards the sky',
         ],
         correctIndex: 2,
         tipImageKey: 'wrist',
@@ -397,7 +411,7 @@ export const quizzes = [
           'Wrist curled in toward your body to start — then snap it out at release. That snap is what puts spin on the disc, and spin is what keeps it flying straight!',
       },
       {
-        id: 6,
+        id: 7,
         question: 'What does snapping your wrist away from your body do?',
         options: [
           'Makes the throw go higher',
@@ -408,26 +422,27 @@ export const quizzes = [
         correctIndex: 2,
         tipImageKey: 'wrist',
         coachTip:
-          'Spin is VITAL. No snap = no spin = wobbly throw that goes nowhere. Wrist curled in to start, then snap it out at the moment of release!',
+          'Spin is EVERYTHING. No snap = no spin = wobbly throw that goes nowhere. Wrist curled in to start, then snap it out at the moment of release!',
       },
       // ── A: Angle ──────────────────────────────────────────────────────────
       {
-        id: 7,
+        id: 8,
         question: 'How should the disc be angled when it leaves your hand?',
         options: [
-          'Tilted nose-up for more height and distance',
-          'Flat, or very slightly nose-down',
-          'Tilted sharply to the side for a curve',
-          'Nose-up to float over defenders',
+          'Tilted up in front — like it wants to fly high',
+          'Flat — level with the ground',
+          'Tilted sharply to the side like a tilted clock',
+          'Angled up to float over defenders',
         ],
         correctIndex: 1,
         tipImageKey: 'angle',
         coachTip:
-          'Flat (or slightly nose-down) = straight flight. Nose-up sends it high and far off target. When in doubt, keep it flat!',
+          'Flat = straight flight. Tilted up in front sends it high and way off target. When in doubt, keep it flat!',
       },
       {
-        id: 8,
-        question: 'What happens if you release the disc nose-up?',
+        id: 9,
+        question:
+          'What happens if you release the disc tilted up — front edge pointing high?',
         options: [
           'It flies straight and far to your target',
           'It curves to the right every time',
@@ -437,37 +452,22 @@ export const quizzes = [
         correctIndex: 2,
         tipImageKey: 'angle',
         coachTip:
-          'Nose-up = trouble. The disc catches air, balloons up, then falls way short. Aim flat — or just a tiny bit nose-down!',
+          'Tilted up = trouble. The disc catches air, balloons up, then falls way short or wide. Aim flat!',
       },
       // ── P: Point (Follow-through) ──────────────────────────────────────────
       {
-        id: 9,
-        question: 'As you release the disc, what should your arm do?',
-        options: [
-          'Pull back to your side quickly',
-          'Stop right at the wrist snap',
-          'Drop naturally once the disc is gone',
-          'Continue swinging forward — extend and point toward your target',
-        ],
-        correctIndex: 3,
-        tipImageKey: 'point',
-        coachTip:
-          'As the disc leaves your hand, keep your arm swinging forward and point at your target. The follow-through is part of the throw — not something that happens after it!',
-      },
-      {
         id: 10,
-        question:
-          'Why does stopping your throwing motion early hurt your throw?',
+        question: 'When you release the disc, where should your hand be pointing?',
         options: [
-          'It makes the defender think you are still throwing',
-          'The disc veers off target and you lose power',
-          "It's just bad style — it doesn't affect the throw",
-          'It protects your shoulder from injury',
+          'At your target',
+          'To the right of your target',
+          'To the left of your target',
+          'At the sky',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         tipImageKey: 'point',
         coachTip:
-          'Throw THROUGH the target, not just to it. Cutting the motion short bleeds off power and accuracy. Full follow-through = full throw!',
+          'During the throw, swing your arm toward the target and finish with your arm extended and hand pointing at your target. That follow-through sends the disc exactly where you want it!',
       },
     ],
   },

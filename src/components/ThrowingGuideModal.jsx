@@ -27,17 +27,17 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Start from a fist around the edge of the disc. All fingers curl under the rim — try both
-          grips and use whichever feels most firm and comfortable.
+          Start from a fist around the edge of the disc. All four fingers curl under the rim, with
+          your index finger running along the edge. Your thumb rests flat on top.
         </p>
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1.5">
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-2">
               <GuideImage src={imgGripUnder} alt="Fingers curled under the rim" />
             </div>
-            <p className="font-display text-xs text-indigo-700 text-center">Fingers curled under</p>
+            <p className="font-display text-xs text-indigo-700 text-center">Fingers under the rim</p>
             <p className="font-body text-xs text-gray-500 text-center leading-snug">
-              Index finger along the edge, all fingers curled under the rim.
+              All four fingers curl under — index finger runs along the edge.
             </p>
           </div>
           <div className="flex flex-col gap-1.5">
@@ -88,8 +88,8 @@ const STEPS = [
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           Start with your wrist <strong>curled in</strong> toward your body. As you release, snap
-          it away. That snap puts spin on the disc — and <em>spin is vital</em>. No snap = no spin
-          = wobbly throw that goes nowhere.
+          it away. That snap puts spin on the disc — and <em>spin is everything</em>. No snap = no
+          spin = wobbly throw that goes nowhere.
         </p>
       </>
     ),
@@ -106,9 +106,9 @@ const STEPS = [
           </div>
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          The disc should leave your hand <strong>flat</strong> — or very slightly nose-down. The
-          angle at release is the angle it flies. Nose-up sends it high and far off target.
-          As you improve, experiment with tilt to see how it curves the flight path.
+          The disc should leave your hand <strong>flat — level with the ground</strong>. The
+          angle at release is the angle it flies. Tilted up in front sends it high and far off
+          target. As you improve, try small tilts to see how they change the flight path.
         </p>
       </div>
     ),
@@ -123,10 +123,10 @@ const STEPS = [
           <GuideImage src={imgPoint} alt="Follow-through — point hand at target diagram" className="max-h-44" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          <strong>As you release</strong>, keep your arm swinging forward and point your hand at
-          your target. The follow-through is part of the throw — not something that happens after
-          it. Think of throwing <em>through</em> the target, not just <em>to</em> it. Full
-          follow-through = full power + full accuracy.
+          During the throw, swing your arm toward the target and finish with your arm
+          extended and hand <strong>pointing at your target</strong>. The follow-through is
+          part of the throw — not something that happens after it. Full follow-through = full
+          power + full accuracy.
         </p>
       </>
     ),
@@ -134,7 +134,7 @@ const STEPS = [
 ]
 
 const ACCENT = {
-  indigo: { header: 'bg-indigo-600', light: 'bg-indigo-50', border: 'border-indigo-200' },
+  indigo: { header: 'bg-indigo-800', light: 'bg-indigo-50', border: 'border-indigo-200' },
   lime:   { header: 'bg-lime-500',   light: 'bg-lime-50',   border: 'border-lime-200'   },
   yellow: { header: 'bg-yellow-500', light: 'bg-yellow-50', border: 'border-yellow-200' },
   orange: { header: 'bg-orange-500', light: 'bg-orange-50', border: 'border-orange-200' },
