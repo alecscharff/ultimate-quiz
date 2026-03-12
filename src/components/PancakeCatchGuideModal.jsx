@@ -21,8 +21,9 @@ const STEPS = [
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           The pancake catch is the <strong>easiest and most reliable</strong> catch in ultimate — for
-          beginners and experienced players alike. Sandwich the disc between your two palms and squeeze.
-          Simple, solid, dependable.
+          beginners and experienced players alike. Hold your <strong>bottom hand palm-up like a tray</strong>,
+          top hand palm-down like a lid. As the disc arrives, <strong>close both hands around it</strong> and
+          pull it into your chest. Simple, solid, dependable.
         </p>
       </>
     ),
@@ -37,10 +38,10 @@ const STEPS = [
           <img src={imgPancakeEyes} alt="Forearms closing like an alligator mouth to catch the disc" className="w-full rounded-lg object-contain max-h-36" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          Think of your <strong>forearms as the jaws of an alligator</strong> — they snap shut on
+          Think of your <strong>forearms as the jaws of an alligator</strong> — they close on
           the disc by hinging at the elbow. Flapping your whole arms from the shoulder makes
-          the catch slow and unpredictable. Keep your elbows in front of you and let the
-          forearms do the work.
+          the catch slow and harder to control. Keep your elbows bent and in front of you and
+          let the forearms do the work.
         </p>
       </>
     ),
@@ -55,7 +56,7 @@ const STEPS = [
           <img src={imgCatchingZone} alt="Catching zone between waist and eye height" className="w-full rounded-lg object-contain max-h-36" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
-          The pancake works best when the disc is thrown <strong>between your waist and eye
+          The pancake works best when the disc is thrown <strong>between your waist and chin
           height</strong>. That&apos;s your sweet spot — meet it with both hands, then{' '}
           <strong>pull it in toward your chest</strong> to lock it down securely.
         </p>
@@ -101,17 +102,15 @@ const STEPS = [
     word: 'Cut to the Disc',
     accent: 'pink',
     body: (
-      <div className="flex gap-3 items-start">
-        <div className="flex-shrink-0 w-28">
-          <div className="bg-white rounded-xl border-2 border-pink-200 p-1.5">
-            <img src={imgCutToDisc} alt="Player cutting hard toward the disc" className="w-full rounded-lg object-contain" />
-          </div>
+      <>
+        <div className="bg-white rounded-xl border-2 border-pink-200 p-2 mb-3">
+          <img src={imgCutToDisc} alt="Player cutting hard toward the disc" className="w-full rounded-lg object-contain max-h-36" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           In a game, <strong>running toward the disc</strong> makes you more likely to get it before
           an opponent. Don&apos;t wait — cut hard and early. The player who moves first wins the disc.
         </p>
-      </div>
+      </>
     ),
   },
   {

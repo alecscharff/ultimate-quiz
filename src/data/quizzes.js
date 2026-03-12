@@ -507,14 +507,14 @@ export const quizzes = [
         question: 'The pancake catch works best when the disc is thrown at what height?',
         options: [
           'Below your knees',
-          'Between your waist and eye height',
+          'Between your waist and chin height',
           'Above your head',
           'At ankle height',
         ],
         correctIndex: 1,
         tipImageKey: 'catching-zone',
         coachTip:
-          'Sweet spot! Between your waist and eyes is the perfect catching zone for a pancake. Throws outside that range need a different technique.',
+          'Sweet spot! Between your waist and chin is the perfect catching zone for a pancake. Throws outside that range need a different technique.',
       },
       {
         id: 3,
@@ -577,14 +577,14 @@ export const quizzes = [
         question: 'If you\'re worried about the disc jamming your fingertips, what should you do?',
         options: [
           'Point your fingers straight at the disc',
-          'Show your palm at a 45-degree angle instead of pointing fingers at it',
+          'Turn your hand so your palm faces the disc instead of your fingertips',
           'Catch with one hand only',
           'Extend your arms completely flat',
         ],
         correctIndex: 1,
         tipImageKey: 'pancake-palm',
         coachTip:
-          'Show your palm! Tilt your catching hand at 45 degrees so the disc hits your palm, not the tips of your fingers. Much safer — and still reliable.',
+          'Show your palm! Turn your hand so the disc hits your palm, not the tips of your fingers. Much safer — and still reliable.',
       },
       {
         id: 8,
@@ -602,17 +602,17 @@ export const quizzes = [
       },
       {
         id: 9,
-        question: 'A disc is thrown high above your head. Is the pancake catch the right move?',
+        question: "What's wrong with flapping your whole arms from your shoulders to make a pancake catch?",
         options: [
-          'Yes — pancake always works best no matter what',
-          'No — the pancake works best between waist and eye height',
-          'Only if you can jump high enough to pancake it',
-          'Yes — just reach way up and pancake it',
+          "Nothing — that's the right way to do it",
+          'It makes the catch happen too fast',
+          "It's slow and harder to control than hinging at your elbows",
+          "It's against the rules",
         ],
-        correctIndex: 1,
-        tipImageKey: 'catching-zone',
+        correctIndex: 2,
+        tipImageKey: 'pancake-eyes',
         coachTip:
-          'Know your zones! The pancake shines from waist to eye level. Above your head, you\'ll need to adjust your technique — maybe a one-hand grab above the rim.',
+          "Think alligator jaws — the hinge is your elbow, not your shoulder. Keep your elbows bent and in front of you, and let your forearms close on the disc. Fast, controlled, and reliable!",
       },
       {
         id: 10,
@@ -626,7 +626,7 @@ export const quizzes = [
         correctIndex: 2,
         tipImageKey: 'cut-to-disc',
         coachTip:
-          'Cut hard and cut early! Running toward the disc with purpose is how you create separation from your defender and secure the catch before they get a chance.',
+          'Cut hard and cut early! Running toward the disc is how you get away from your defender and secure the catch before they get a chance.',
       },
     ],
   },
