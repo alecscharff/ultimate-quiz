@@ -28,22 +28,38 @@ const STEPS = [
     ),
   },
   {
+    letter: '🐊',
+    word: 'Alligator Mouth',
+    accent: 'teal',
+    body: (
+      <>
+        <div className="bg-white rounded-xl border-2 border-teal-200 p-2 mb-3">
+          <img src={imgPancakeEyes} alt="Forearms closing like an alligator mouth to catch the disc" className="w-full rounded-lg object-contain max-h-36" />
+        </div>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          Think of your <strong>forearms as the jaws of an alligator</strong> — they snap shut on
+          the disc by hinging at the elbow. Flapping your whole arms from the shoulder makes
+          the catch slow and unpredictable. Keep your elbows in front of you and let the
+          forearms do the work.
+        </p>
+      </>
+    ),
+  },
+  {
     letter: '↕',
     word: 'Catching Zone',
     accent: 'indigo',
     body: (
-      <div className="flex gap-3 items-start">
-        <div className="flex-shrink-0 w-28">
-          <div className="bg-white rounded-xl border-2 border-indigo-200 p-1.5">
-            <img src={imgCatchingZone} alt="Catching zone between waist and eye height" className="w-full rounded-lg object-contain" />
-          </div>
+      <>
+        <div className="bg-white rounded-xl border-2 border-indigo-200 p-2 mb-3">
+          <img src={imgCatchingZone} alt="Catching zone between waist and eye height" className="w-full rounded-lg object-contain max-h-36" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           The pancake works best when the disc is thrown <strong>between your waist and eye
-          height</strong>. That&apos;s your sweet spot — you can see the disc clearly and bring
-          both hands together in front of your chest.
+          height</strong>. That&apos;s your sweet spot — meet it with both hands, then{' '}
+          <strong>pull it in toward your chest</strong> to lock it down securely.
         </p>
-      </div>
+      </>
     ),
   },
   {
