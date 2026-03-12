@@ -9,16 +9,33 @@ import imgMoveToDisc   from '../assets/move-to-disc.gif'
 import imgCutToDisc    from '../assets/cut-to-disc.gif'
 import imgPancakePalm  from '../assets/pancake-palm.gif'
 
+// ─── GIF duration helper ──────────────────────────────────────────────────────
+// Parses Graphics Control Extension blocks from the GIF binary to sum frame
+// delays (stored in centiseconds) and return total duration in milliseconds.
+function parseGifDurationMs(bytes) {
+  let ms = 0
+  for (let i = 0; i < bytes.length - 8; i++) {
+    if (bytes[i] === 0x21 && bytes[i + 1] === 0xF9 && bytes[i + 2] === 0x04) {
+      ms += (bytes[i + 4] + bytes[i + 5] * 256) * 10
+    }
+  }
+  return ms || 3000 // fallback 3 s if no delay info found
+}
+
 // ─── GifPlayer ───────────────────────────────────────────────────────────────
 // Shows the first frame as a static poster (via canvas). Tap to play the
-// animation; tap again to stop and reset to the first frame.
+// animation; it stops automatically after one full loop.
 function GifPlayer({ src, alt, className = '' }) {
   const [playing,     setPlaying]     = useState(false)
   const [posterReady, setPosterReady] = useState(false)
+  const [durationMs,  setDurationMs]  = useState(null)
   const canvasRef = useRef(null)
+  const timerRef  = useRef(null)
 
+  // On mount: capture first frame via Image, and parse GIF duration via fetch.
   useEffect(() => {
     let alive = true
+
     const img = new Image()
     img.onload = () => {
       if (!alive) return
@@ -30,13 +47,32 @@ function GifPlayer({ src, alt, className = '' }) {
       setPosterReady(true)
     }
     img.src = src
-    return () => { alive = false }
+
+    fetch(src)
+      .then(r => r.arrayBuffer())
+      .then(buf => { if (alive) setDurationMs(parseGifDurationMs(new Uint8Array(buf))) })
+      .catch(() => { if (alive) setDurationMs(3000) })
+
+    return () => {
+      alive = false
+      clearTimeout(timerRef.current)
+    }
   }, [src])
+
+  function handleTap() {
+    if (playing) {
+      clearTimeout(timerRef.current)
+      setPlaying(false)
+    } else {
+      setPlaying(true)
+      timerRef.current = setTimeout(() => setPlaying(false), durationMs ?? 3000)
+    }
+  }
 
   return (
     <div
       className={`relative cursor-pointer select-none rounded-lg overflow-hidden bg-gray-50 ${className}`}
-      onClick={() => setPlaying(p => !p)}
+      onClick={handleTap}
       role="button"
       aria-label={playing ? 'Stop animation' : 'Play animation'}
     >
