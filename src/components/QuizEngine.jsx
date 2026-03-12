@@ -1,22 +1,40 @@
 import { useState, useRef } from 'react'
 import ProgressBar from './ProgressBar'
 import FeedbackModal from './FeedbackModal'
-import ThrowingGuideModal from './ThrowingGuideModal'
+import ThrowingGuideModal    from './ThrowingGuideModal'
+import PancakeCatchGuideModal from './PancakeCatchGuideModal'
 
-import imgGripTop   from '../assets/grip-top.png'
-import imgGripUnder from '../assets/grip-under.png'
-import imgStance    from '../assets/side-on-stance.png'
-import imgWrist     from '../assets/wrist-snap.png'
-import imgAngle     from '../assets/flat-angle.png'
-import imgPoint     from '../assets/point-hand-at-target.png'
+import imgGripTop      from '../assets/grip-top.png'
+import imgGripUnder    from '../assets/grip-under.png'
+import imgStance       from '../assets/side-on-stance.png'
+import imgWrist        from '../assets/wrist-snap.png'
+import imgAngle        from '../assets/flat-angle.png'
+import imgPoint        from '../assets/point-hand-at-target.png'
+import imgCoolCatch    from '../assets/cool-catch.gif'
+import imgCatchingZone from '../assets/catching-zone.gif'
+import imgPancakeEyes  from '../assets/pancake-eyes.gif'
+import imgMoveToDisc   from '../assets/move-to-disc.gif'
+import imgCutToDisc    from '../assets/cut-to-disc.gif'
+import imgPancakePalm  from '../assets/pancake-palm.gif'
 
 const TIP_IMAGES = {
-  'grip-top':   imgGripTop,
-  'grip-under': imgGripUnder,
-  'stance':     imgStance,
-  'wrist':      imgWrist,
-  'angle':      imgAngle,
-  'point':      imgPoint,
+  'grip-top':      imgGripTop,
+  'grip-under':    imgGripUnder,
+  'stance':        imgStance,
+  'wrist':         imgWrist,
+  'angle':         imgAngle,
+  'point':         imgPoint,
+  'cool-catch':    imgCoolCatch,
+  'catching-zone': imgCatchingZone,
+  'pancake-eyes':  imgPancakeEyes,
+  'move-to-disc':  imgMoveToDisc,
+  'cut-to-disc':   imgCutToDisc,
+  'pancake-palm':  imgPancakePalm,
+}
+
+const GUIDE_MODALS = {
+  throwing: ThrowingGuideModal,
+  pancake:  PancakeCatchGuideModal,
 }
 
 // ─── Letter labels for the four answer buttons ───────────────────────────────
@@ -297,6 +315,8 @@ export default function QuizEngine({ quiz, onExit }) {
   const [guideButtonRect, setGuideButtonRect] = useState(null)
   const guideButtonRef = useRef(null)
 
+  const GuideModal = GUIDE_MODALS[quiz.id] ?? ThrowingGuideModal
+
   const question  = questionsQueue[currentIndex]
   const isLast    = currentIndex === questionsQueue.length - 1
   const isCorrect = selectedIndex === question?.correctIndex
@@ -405,7 +425,7 @@ export default function QuizEngine({ quiz, onExit }) {
         </div>
 
         {showGuide && (
-          <ThrowingGuideModal
+          <GuideModal
             onClose={() => { setShowGuide(false); setStarted(true) }}
             startLabel="Got it — I'm ready to start!"
           />
@@ -525,7 +545,7 @@ export default function QuizEngine({ quiz, onExit }) {
       )}
 
       {/* Study guide modal */}
-      {showGuide && <ThrowingGuideModal onClose={() => setShowGuide(false)} targetRect={guideButtonRect} />}
+      {showGuide && <GuideModal onClose={() => setShowGuide(false)} targetRect={guideButtonRect} />}
     </div>
   )
 }

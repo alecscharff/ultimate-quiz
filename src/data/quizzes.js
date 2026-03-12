@@ -471,4 +471,163 @@ export const quizzes = [
       },
     ],
   },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // QUIZ 4 — Pancake Catch: Level 2 Certification Prep
+  // hasGuide     → shows "Study Guide" button during the quiz
+  // certLevel    → shows certification submission on results screen
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'pancake',
+    title: 'Quiz 4: The Pancake Catch',
+    description: 'Level 2 cert prep — catch it every time!',
+    emoji: '🤲',
+    questionCount: 10,
+    estimatedMinutes: 6,
+    comingSoon: false,
+    hasGuide: true,
+    certLevel: 'Level 2 – Pancake Catch',
+    questions: [
+      {
+        id: 1,
+        question: 'Which catch technique is considered the easiest and most reliable for players at all levels?',
+        options: [
+          'The overhead catch',
+          'The pancake catch',
+          'The behind-the-back catch',
+          'The one-handed snag',
+        ],
+        correctIndex: 1,
+        tipImageKey: 'cool-catch',
+        coachTip:
+          'The pancake catch is the most reliable catch in ultimate — beginners and pros use it all the time. Master this and you\'ll be holding on to discs every game!',
+      },
+      {
+        id: 2,
+        question: 'The pancake catch works best when the disc is thrown at what height?',
+        options: [
+          'Below your knees',
+          'Between your waist and eye height',
+          'Above your head',
+          'At ankle height',
+        ],
+        correctIndex: 1,
+        tipImageKey: 'catching-zone',
+        coachTip:
+          'Sweet spot! Between your waist and eyes is the perfect catching zone for a pancake. Throws outside that range need a different technique.',
+      },
+      {
+        id: 3,
+        question: 'While making a pancake catch, when can you look away from the disc?',
+        options: [
+          'As soon as it leaves the thrower\'s hand',
+          'Once the disc is halfway to you',
+          'Not until it\'s firmly under your control',
+          'Whenever you feel ready',
+        ],
+        correctIndex: 2,
+        tipImageKey: 'pancake-eyes',
+        coachTip:
+          'Watch it ALL the way in! Most drops happen when players look away too early. Keep your eyes locked on the disc until it\'s squished firmly between your hands.',
+      },
+      {
+        id: 4,
+        question: 'Where should your chest be when making a pancake catch?',
+        options: [
+          'To the side of the disc',
+          'Below the disc',
+          'Right behind the disc',
+          'Above the disc',
+        ],
+        correctIndex: 2,
+        tipImageKey: 'move-to-disc',
+        coachTip:
+          'Get your chest behind the disc! Your body acts as a backup if your hands aren\'t perfect. That\'s what makes the pancake so reliable.',
+      },
+      {
+        id: 5,
+        question: 'The throw is coming at you sideways and too far away. What should you do?',
+        options: [
+          'Wait for it to drift to you',
+          'Reach out with just your arms',
+          'Call for a redo',
+          'Move your feet — step, jump, or slide to get there',
+        ],
+        correctIndex: 3,
+        tipImageKey: 'move-to-disc',
+        coachTip:
+          'Your feet are your most important catching tool! Move your whole body to get into position — step, jump, or slide. Don\'t just reach with your arms.',
+      },
+      {
+        id: 6,
+        question: 'In a game, why should you run toward the disc instead of waiting for it?',
+        options: [
+          'It makes the throw look harder',
+          'It lets you get the disc before an opponent can',
+          'It gives your thrower more time to aim',
+          'It\'s required by the rules',
+        ],
+        correctIndex: 1,
+        tipImageKey: 'cut-to-disc',
+        coachTip:
+          'Cutting to the disc is how you beat your defender! Run hard toward the throw and you\'ll get there first. Hesitate and you might lose the race.',
+      },
+      {
+        id: 7,
+        question: 'If you\'re worried about the disc jamming your fingertips, what should you do?',
+        options: [
+          'Point your fingers straight at the disc',
+          'Show your palm at a 45-degree angle instead of pointing fingers at it',
+          'Catch with one hand only',
+          'Extend your arms completely flat',
+        ],
+        correctIndex: 1,
+        tipImageKey: 'pancake-palm',
+        coachTip:
+          'Show your palm! Tilt your catching hand at 45 degrees so the disc hits your palm, not the tips of your fingers. Much safer — and still reliable.',
+      },
+      {
+        id: 8,
+        question: 'Your teammate is about to catch but looks away from the disc early. What\'s likely to happen?',
+        options: [
+          'They\'ll catch it fine — they\'ve done it before',
+          'They\'ll make an even better catch',
+          'They might drop it — eyes must stay on the disc',
+          'Nothing different — looking away doesn\'t matter',
+        ],
+        correctIndex: 2,
+        tipImageKey: 'pancake-eyes',
+        coachTip:
+          'Eyes = catches. The disc can wobble or drift in the last second. If you look away early, you won\'t see those final adjustments you need to make.',
+      },
+      {
+        id: 9,
+        question: 'A disc is thrown high above your head. Is the pancake catch the right move?',
+        options: [
+          'Yes — pancake always works best no matter what',
+          'No — the pancake works best between waist and eye height',
+          'Only if you can jump high enough to pancake it',
+          'Yes — just reach way up and pancake it',
+        ],
+        correctIndex: 1,
+        tipImageKey: 'catching-zone',
+        coachTip:
+          'Know your zones! The pancake shines from waist to eye level. Above your head, you\'ll need to adjust your technique — maybe a one-hand grab above the rim.',
+      },
+      {
+        id: 10,
+        question: 'Which of these best describes "cutting to the disc"?',
+        options: [
+          'Walking slowly to where the disc is heading',
+          'Calling loudly for the disc',
+          'Running hard toward the throw to reach it before a defender can',
+          'Waiting for the disc to come to you',
+        ],
+        correctIndex: 2,
+        tipImageKey: 'cut-to-disc',
+        coachTip:
+          'Cut hard and cut early! Running toward the disc with purpose is how you create separation from your defender and secure the catch before they get a chance.',
+      },
+    ],
+  },
 ]
