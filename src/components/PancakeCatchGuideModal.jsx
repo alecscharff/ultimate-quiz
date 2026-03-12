@@ -1,7 +1,7 @@
 // PancakeCatchGuideModal — study guide for the Pancake Catch (Level 2 cert).
 // Triggered before Quiz 4 and via the "Study Guide" button during it.
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import imgCoolCatch    from '../assets/cool-catch.gif'
 import imgCatchingZone from '../assets/catching-zone.gif'
 import imgPancakeEyes  from '../assets/pancake-eyes.gif'
@@ -9,6 +9,80 @@ import imgMoveToDisc   from '../assets/move-to-disc.gif'
 import imgCutToDisc    from '../assets/cut-to-disc.gif'
 import imgPancakePalm  from '../assets/pancake-palm.gif'
 
+// ─── GifPlayer ───────────────────────────────────────────────────────────────
+// Shows the first frame as a static poster (via canvas). Tap to play the
+// animation; tap again to stop and reset to the first frame.
+function GifPlayer({ src, alt, className = '' }) {
+  const [playing,     setPlaying]     = useState(false)
+  const [posterReady, setPosterReady] = useState(false)
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    let alive = true
+    const img = new Image()
+    img.onload = () => {
+      if (!alive) return
+      const canvas = canvasRef.current
+      if (!canvas) return
+      canvas.width  = img.naturalWidth
+      canvas.height = img.naturalHeight
+      canvas.getContext('2d').drawImage(img, 0, 0)
+      setPosterReady(true)
+    }
+    img.src = src
+    return () => { alive = false }
+  }, [src])
+
+  return (
+    <div
+      className={`relative cursor-pointer select-none rounded-lg overflow-hidden bg-gray-50 ${className}`}
+      onClick={() => setPlaying(p => !p)}
+      role="button"
+      aria-label={playing ? 'Stop animation' : 'Play animation'}
+    >
+      {/* Canvas holds the first frame — visible only when paused and ready */}
+      <canvas
+        ref={canvasRef}
+        className="w-full block"
+        style={{ display: !playing && posterReady ? 'block' : 'none' }}
+      />
+
+      {/* GIF only mounted while playing — forces restart from frame 1 each time */}
+      {playing && (
+        <img src={src} alt={alt} className="w-full block" />
+      )}
+
+      {/* Spinner while first frame is loading */}
+      {!playing && !posterReady && (
+        <div className="w-full h-24 flex items-center justify-center">
+          <div className="w-5 h-5 border-2 border-gray-200 border-t-gray-400 rounded-full animate-spin" />
+        </div>
+      )}
+
+      {/* Tap-to-play overlay on the poster */}
+      {!playing && posterReady && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-black/20">
+          <div className="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center shadow-md">
+            <svg className="w-5 h-5 text-indigo-700 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <span className="font-body font-bold text-white text-xs drop-shadow-md">Tap to play</span>
+        </div>
+      )}
+
+      {/* Tap-to-stop badge while playing */}
+      {playing && (
+        <div className="absolute bottom-2 right-2 flex items-center gap-1.5 bg-black/50 rounded-full px-2.5 py-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
+          <span className="font-body text-white text-xs font-bold">Tap to stop</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Guide sections ───────────────────────────────────────────────────────────
 const STEPS = [
   {
     letter: '🥏',
@@ -16,8 +90,8 @@ const STEPS = [
     accent: 'lime',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-lime-200 p-2 mb-3">
-          <img src={imgCoolCatch} alt="Pancake catch in action" className="w-full rounded-lg object-contain" />
+        <div className="border-2 border-lime-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgCoolCatch} alt="Pancake catch in action" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           The pancake catch is the <strong>easiest and most reliable</strong> catch in ultimate — for
@@ -34,8 +108,8 @@ const STEPS = [
     accent: 'teal',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-teal-200 p-2 mb-3">
-          <img src={imgPancakeEyes} alt="Forearms closing like an alligator mouth to catch the disc" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-teal-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgPancakeEyes} alt="Forearms closing like an alligator mouth to catch the disc" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           Think of your <strong>forearms as the jaws of an alligator</strong> — they close on
@@ -52,8 +126,8 @@ const STEPS = [
     accent: 'indigo',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-indigo-200 p-2 mb-3">
-          <img src={imgCatchingZone} alt="Catching zone between waist and eye height" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-indigo-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgCatchingZone} alt="Catching zone between waist and chin height" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           The pancake works best when the disc is thrown <strong>between your waist and chin
@@ -69,8 +143,8 @@ const STEPS = [
     accent: 'yellow',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-yellow-200 p-2 mb-3">
-          <img src={imgPancakeEyes} alt="Eyes tracking the disc into the catch" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-yellow-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgPancakeEyes} alt="Eyes tracking the disc into the catch" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           <strong>ALWAYS</strong> keep your eyes on the disc until it is firmly under your
@@ -86,8 +160,8 @@ const STEPS = [
     accent: 'orange',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-orange-200 p-2 mb-3">
-          <img src={imgMoveToDisc} alt="Player moving feet to get chest behind the disc" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-orange-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgMoveToDisc} alt="Player moving feet to get chest behind the disc" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           Get your <strong>chest right behind the disc</strong>. If the throw is off, move your feet
@@ -103,8 +177,8 @@ const STEPS = [
     accent: 'pink',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-pink-200 p-2 mb-3">
-          <img src={imgCutToDisc} alt="Player cutting hard toward the disc" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-pink-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgCutToDisc} alt="Player cutting hard toward the disc" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           In a game, <strong>running toward the disc</strong> makes you more likely to get it before
@@ -119,13 +193,13 @@ const STEPS = [
     accent: 'teal',
     body: (
       <>
-        <div className="bg-white rounded-xl border-2 border-teal-200 p-2 mb-3">
-          <img src={imgPancakePalm} alt="Hand showing palm at 45 degrees toward the disc" className="w-full rounded-lg object-contain max-h-36" />
+        <div className="border-2 border-teal-200 rounded-xl overflow-hidden mb-3">
+          <GifPlayer src={imgPancakePalm} alt="Hand showing palm facing the disc" />
         </div>
         <p className="font-body text-sm text-gray-700 leading-relaxed">
           Worried about jamming your fingertips? Instead of pointing your fingers straight at the
-          disc, <strong>show your palm at a 45-degree angle</strong> as you wait for it. The disc
-          hits your palm — not the tips of your fingers.
+          disc, <strong>turn your hand so your palm faces the disc</strong> as you wait for it. The
+          disc hits your palm — not the tips of your fingers.
         </p>
       </>
     ),
