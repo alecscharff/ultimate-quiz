@@ -719,7 +719,7 @@ export const quizzes = [
         correctIndex: 3,
         tipImageKey: 'forehand-aim',
         coachTip:
-          'Step out with your free foot toward the target just before you throw. That step opens your hip and adds power and accuracy!',
+          'Step out to the side with your free foot just before you throw. That step opens your hip and adds power and accuracy!',
       },
       // ── D: Disc angle ─────────────────────────────────────────────────────
       {
