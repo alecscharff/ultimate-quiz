@@ -3,6 +3,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+import imgStandardGrip from '../assets/quiz5new/forehand-standard-grip.png'
+import imgPeaceGrip    from '../assets/quiz5new/forehand-peacesign-grip.png'
+import gifLockIt       from '../assets/quiz5new/lockit.gif'
+import gifAim          from '../assets/quiz5new/aim-forehand.gif'
+import imgDiscAngle    from '../assets/quiz5new/forehand-disc-angle.png'
+import imgWristSnap    from '../assets/quiz5new/forehand-wrist-snap.png'
+import gifAwesome      from '../assets/quiz5new/awesome-forehand.gif'
+
 // ─── GIF duration helper ──────────────────────────────────────────────────────
 // Parses Graphics Control Extension blocks from the GIF binary to sum frame
 // delays (stored in centiseconds) and return total duration in milliseconds.
@@ -112,19 +120,6 @@ function GifPlayer({ src, alt, className = '' }) {
   )
 }
 
-// ─── PlaceholderAsset ─────────────────────────────────────────────────────────
-// Renders a styled placeholder div until the real image/GIF asset is ready.
-function PlaceholderAsset({ emoji = '📸', label, className = '' }) {
-  return (
-    <div
-      className={`w-full rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center gap-2 py-6 px-4 ${className}`}
-    >
-      <span className="text-3xl" role="img" aria-hidden="true">{emoji}</span>
-      <p className="font-body text-xs text-gray-400 text-center leading-snug">{label}</p>
-    </div>
-  )
-}
-
 // ─── Guide sections ───────────────────────────────────────────────────────────
 const STEPS = [
   {
@@ -139,12 +134,10 @@ const STEPS = [
         </p>
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="flex flex-col gap-1.5">
-            {/* TODO: replace with <GifPlayer src={imgStandardGrip} alt="Standard forehand grip — two fingers inside rim, two outside" /> once asset is ready */}
-            <PlaceholderAsset emoji="📸" label="Standard forehand grip — two fingers inside rim, two outside" />
+            <img src={imgStandardGrip} alt="Standard forehand grip — two fingers inside rim, two outside" className="w-full rounded-lg object-contain" />
           </div>
           <div className="flex flex-col gap-1.5">
-            {/* TODO: replace with <GifPlayer src={imgPeaceSignGrip} alt="Peace sign grip — index and middle fingers along inside rim" /> once asset is ready */}
-            <PlaceholderAsset emoji="📸" label="Peace sign grip — index and middle fingers along inside rim" />
+            <img src={imgPeaceGrip} alt="Peace sign grip — index and middle fingers along inside rim" className="w-full rounded-lg object-contain" />
           </div>
         </div>
         <p className="font-body text-xs text-gray-500 leading-relaxed">
@@ -165,8 +158,7 @@ const STEPS = [
           The disc <strong>shouldn&apos;t budge</strong> on a fake. Test it before you throw —
           shake the disc gently. If it moves, tighten up.
         </p>
-        {/* TODO: replace with <GifPlayer src={imgShakeTest} alt="Shaking the disc to test grip — disc stays put" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="Shaking the disc to test grip — disc stays put" />
+        <GifPlayer src={gifLockIt} alt="Shaking the disc to test grip — disc stays put" />
       </>
     ),
   },
@@ -180,8 +172,7 @@ const STEPS = [
           <strong>Chest faces target</strong> — the opposite of the backhand! Step out with your
           free foot toward the target just before you throw.
         </p>
-        {/* TODO: replace with <GifPlayer src={imgForehandStance} alt="Forehand stance — chest to target, step out with free foot" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="Forehand stance — chest to target, step out with free foot" />
+        <GifPlayer src={gifAim} alt="Forehand stance — chest to target, step out with free foot" />
       </>
     ),
   },
@@ -195,8 +186,7 @@ const STEPS = [
           The disc must stay <strong>parallel to the ground</strong> throughout the entire throw.
           Any tilt = off-course throw.
         </p>
-        {/* TODO: replace with <GuideImage src={imgDiscAngle} alt="Disc held parallel to ground — flat angle throughout throw" /> once asset is ready */}
-        <PlaceholderAsset emoji="📸" label="Disc held parallel to ground — flat angle throughout throw" />
+        <img src={imgDiscAngle} alt="Disc held parallel to ground — flat angle throughout throw" className="w-full rounded-lg object-contain" />
       </>
     ),
   },
@@ -210,8 +200,7 @@ const STEPS = [
           Wrist <strong>bends back first</strong>, then snaps forward — like flicking something icky
           off your fingers.
         </p>
-        {/* TODO: replace with <GuideImage src={imgWristSnap} alt="Wrist loaded back, ready to snap forward" /> once asset is ready */}
-        <PlaceholderAsset emoji="📸" label="Wrist loaded back, ready to snap forward" className="mb-3" />
+        <img src={imgWristSnap} alt="Wrist loaded back, ready to snap forward" className="w-full rounded-lg object-contain mb-3" />
         <p className="font-body text-xs text-gray-500 leading-relaxed">
           Best drill: practice <strong>wrist-only throws</strong> before adding your arm. If you can
           throw 10 feet with just your wrist, you&apos;ve got the snap.
@@ -319,8 +308,7 @@ export default function ForehandGuideModal({ onClose, startLabel = 'Got it — b
                 also called the &ldquo;flick&rdquo; — might seem tricky at first, but many players
                 find it easier to master than the backhand!
               </p>
-              {/* TODO: replace with <GifPlayer src={imgForehandAction} alt="Awesome forehand flick throw in action" /> once asset is ready */}
-              <PlaceholderAsset emoji="🎬" label="Awesome forehand flick throw in action" />
+              <GifPlayer src={gifAwesome} alt="Awesome forehand flick throw in action" />
             </div>
           </div>
 

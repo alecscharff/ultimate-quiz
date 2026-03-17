@@ -659,7 +659,7 @@ export const quizzes = [
           'Just your fingertips resting on the edge',
         ],
         correctIndex: 0,
-        // TODO: tipImageKey: 'forehand-grip-standard',
+        tipImageKey: 'forehand-standard-grip',
         coachTip:
           'Think "shake hands with the disc" — two fingers on the inside of the rim, two on the outside. Thumb stays on top. That\'s your forehand grip!',
       },
@@ -673,7 +673,7 @@ export const quizzes = [
           'Hold the disc with just your thumb',
         ],
         correctIndex: 1,
-        // TODO: tipImageKey: 'forehand-grip-peace',
+        tipImageKey: 'forehand-peace-grip',
         coachTip:
           'The peace sign grip is a great stepping stone! Index and middle fingers side by side inside the rim. As your grip gets stronger, move to the standard two-finger grip.',
       },
@@ -688,7 +688,7 @@ export const quizzes = [
           'Ask your coach to pull on it',
         ],
         correctIndex: 2,
-        // TODO: tipImageKey: 'forehand-grip-shake',
+        tipImageKey: 'forehand-lockit',
         coachTip:
           'Shake the disc — if it budges, tighten up! Lock it before you throw it. A slipping disc means a wobbly, off-target throw.',
       },
@@ -703,7 +703,7 @@ export const quizzes = [
           'It doesn\'t matter for a forehand',
         ],
         correctIndex: 2,
-        // TODO: tipImageKey: 'forehand-stance',
+        tipImageKey: 'forehand-aim',
         coachTip:
           'Forehand stance is CHEST TO TARGET — the opposite of the backhand! Face your target, step out, and let your arm come through.',
       },
@@ -717,7 +717,7 @@ export const quizzes = [
           'Step out toward your target',
         ],
         correctIndex: 3,
-        // TODO: tipImageKey: 'forehand-stance',
+        tipImageKey: 'forehand-aim',
         coachTip:
           'Step out with your free foot toward the target just before you throw. That step opens your hip and adds power and accuracy!',
       },
@@ -732,7 +732,7 @@ export const quizzes = [
           'The angle doesn\'t matter as long as you have spin',
         ],
         correctIndex: 0,
-        // TODO: tipImageKey: 'forehand-angle',
+        tipImageKey: 'forehand-disc-angle',
         coachTip:
           'Flat is everything! Keep the disc parallel to the ground from start to finish. Any tilt and the throw goes off course.',
       },
@@ -746,6 +746,7 @@ export const quizzes = [
           'Nothing — tilt doesn\'t affect the throw',
         ],
         correctIndex: 1,
+        tipImageKey: 'forehand-disc-angle',
         coachTip:
           'Tilt = trouble. Even a small tilt at release sends the disc curving or wobbling. Check your angle before you even start your motion!',
       },
@@ -760,7 +761,7 @@ export const quizzes = [
           'Twisted inward toward your body',
         ],
         correctIndex: 2,
-        // TODO: tipImageKey: 'forehand-wrist',
+        tipImageKey: 'forehand-wrist-snap',
         coachTip:
           'Load the wrist BACK first, then snap it FORWARD at release. That snap creates spin — and spin keeps the disc flying straight!',
       },
@@ -774,6 +775,7 @@ export const quizzes = [
           'Watch someone else throw and copy their form',
         ],
         correctIndex: 1,
+        tipImageKey: 'forehand-wrist-snap',
         coachTip:
           'Wrist-only throws are the best drill! Lock your arm in place and just snap the wrist. If you can throw 10 feet with just your wrist, you\'ve got the snap — now add the arm.',
       },
@@ -787,6 +789,7 @@ export const quizzes = [
           'Flicking something icky off your fingers',
         ],
         correctIndex: 3,
+        tipImageKey: 'forehand-awesome',
         coachTip:
           'EXACTLY — like flicking something gross off your fingers! Fast, sharp snap. You\'ll feel the disc roll off with spin. No snap = no spin = wobbly throw.',
       },
@@ -805,7 +808,7 @@ export const quizzes = [
     emoji: '🕺',
     questionCount: 10,
     estimatedMinutes: 6,
-    comingSoon: false,
+    comingSoon: true,
     hasGuide: true,
     certLevel: 'Level 4 – Pivot & Fake',
     videoUrl: 'https://www.youtube.com/watch?v=gonrOw-6D1s',

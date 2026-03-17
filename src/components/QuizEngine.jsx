@@ -19,6 +19,14 @@ import imgMoveToDisc   from '../assets/move-to-disc.gif'
 import imgCutToDisc    from '../assets/cut-to-disc.gif'
 import imgPancakePalm  from '../assets/pancake-palm.gif'
 
+import imgForehandStandardGrip from '../assets/quiz5new/forehand-standard-grip.png'
+import imgForehandPeaceGrip    from '../assets/quiz5new/forehand-peacesign-grip.png'
+import imgForehandLockIt       from '../assets/quiz5new/lockit.gif'
+import imgForehandAim          from '../assets/quiz5new/aim-forehand.gif'
+import imgForehandDiscAngle    from '../assets/quiz5new/forehand-disc-angle.png'
+import imgForehandWristSnap    from '../assets/quiz5new/forehand-wrist-snap.png'
+import imgForehandAwesome      from '../assets/quiz5new/awesome-forehand.gif'
+
 const TIP_IMAGES = {
   'grip-top':      imgGripTop,
   'grip-under':    imgGripUnder,
@@ -32,6 +40,14 @@ const TIP_IMAGES = {
   'move-to-disc':  imgMoveToDisc,
   'cut-to-disc':   imgCutToDisc,
   'pancake-palm':  imgPancakePalm,
+
+  'forehand-standard-grip': imgForehandStandardGrip,
+  'forehand-peace-grip':    imgForehandPeaceGrip,
+  'forehand-lockit':        imgForehandLockIt,
+  'forehand-aim':           imgForehandAim,
+  'forehand-disc-angle':    imgForehandDiscAngle,
+  'forehand-wrist-snap':    imgForehandWristSnap,
+  'forehand-awesome':       imgForehandAwesome,
 }
 
 const GUIDE_MODALS = {
