@@ -56,11 +56,11 @@ export const quizzes = [
         ],
         correctIndex: 2,
         coachTip:
-          'When you mark someone, you shadow them everywhere they go to stop them getting the disc.',
+          'When you mark someone, you shadow them everywhere they go to stop them from getting the disc.',
       },
       {
         id: 3,
-        question: 'On offense, how do we number the defense?',
+        question: "When you're on offense, how do you number the defenders?",
         options: [
           'Left to right, 1–5',
           'Right to left, 1–5',
@@ -218,7 +218,7 @@ export const quizzes = [
         ],
         correctIndex: 2,
         coachTip:
-          'Ultimate runs on Spirit of the Game — players are honest and call fouls on themselves and others fairly. No refs needed when everyone plays with integrity!',
+          'Ultimate runs on Spirit of the Game — players are honest and call fouls on themselves and others fairly. No refs needed when everyone plays honestly and treats each other with respect!',
       },
       {
         id: 7,
@@ -259,7 +259,7 @@ export const quizzes = [
         ],
         correctIndex: 1,
         coachTip:
-          'When a foul is accepted, the disc returns to the fouled player. The defender "checks" it in by touching it, then play restarts. No free yards — just a fair do-over!',
+          'When the other player agrees it was a foul, the disc comes back to you. The defender taps it to check it in, and play starts again — just a fair do-over!',
       },
       {
         id: 11,
@@ -668,7 +668,7 @@ export const quizzes = [
         question: 'Your grip isn\'t strong enough yet for the standard forehand. What training grip can you use?',
         options: [
           'Switch to a backhand grip instead',
-          'Split your two throwing fingers into a peace sign along the inside of the rim',
+          'Make a peace sign with two fingers along the inside of the rim',
           'Use your palm to push the disc',
           'Hold the disc with just your thumb',
         ],
@@ -690,7 +690,7 @@ export const quizzes = [
         correctIndex: 2,
         tipImageKey: 'forehand-lockit',
         coachTip:
-          'Shake the disc — if it budges, tighten up! Lock it before you throw it. A slipping disc means a wobbly, off-target throw.',
+          'Wiggle the disc — if it moves at all, grip tighter! Lock it before you throw it. A slipping disc means a wobbly, off-target throw.',
       },
       // ── A: Aim ────────────────────────────────────────────────────────────
       {
@@ -705,7 +705,7 @@ export const quizzes = [
         correctIndex: 2,
         tipImageKey: 'forehand-aim',
         coachTip:
-          'Forehand stance is CHEST TO TARGET — the opposite of the backhand! Face your target, step out, and let your arm come through.',
+          'Forehand stance is CHEST TO TARGET — the opposite of the backhand! Backhand = side-on. Forehand = face your target. Step out and let your arm come through.',
       },
       {
         id: 5,
@@ -726,7 +726,7 @@ export const quizzes = [
         id: 6,
         question: 'How should the disc be angled throughout the entire forehand throw?',
         options: [
-          'Parallel to the ground — flat all the way through',
+          'Flat — level with the ground, the whole way through',
           'Tilted up in front to help it fly higher',
           'Angled down slightly so it dips to the receiver',
           'The angle doesn\'t matter as long as you have spin',
@@ -734,7 +734,7 @@ export const quizzes = [
         correctIndex: 0,
         tipImageKey: 'forehand-disc-angle',
         coachTip:
-          'Flat is everything! Keep the disc parallel to the ground from start to finish. Any tilt and the throw goes off course.',
+          'Flat is everything! Keep the disc level with the ground from start to finish. Any tilt and the throw goes off course.',
       },
       {
         id: 7,
@@ -748,7 +748,7 @@ export const quizzes = [
         correctIndex: 1,
         tipImageKey: 'forehand-disc-angle',
         coachTip:
-          'Tilt = trouble. Even a small tilt at release sends the disc curving or wobbling. Check your angle before you even start your motion!',
+          'Tilt = trouble. Even a small tilt at release sends the disc curving or wobbling. Before you even start, make sure that disc is flat!',
       },
       // ── S: Snap ───────────────────────────────────────────────────────────
       {
@@ -757,13 +757,13 @@ export const quizzes = [
         options: [
           'Snapped forward toward the target',
           'Flat and relaxed at your side',
-          'Bent back, loaded away from the target',
+          'Bent back, away from your target',
           'Twisted inward toward your body',
         ],
         correctIndex: 2,
         tipImageKey: 'forehand-wrist-snap',
         coachTip:
-          'Load the wrist BACK first, then snap it FORWARD at release. That snap creates spin — and spin keeps the disc flying straight!',
+          'Pull the wrist BACK first, then snap it FORWARD when you throw. That snap creates spin — and spin keeps the disc flying straight!',
       },
       {
         id: 9,
@@ -818,8 +818,8 @@ export const quizzes = [
         id: 1,
         question: 'Which foot is your pivot foot when you\'re holding the disc?',
         options: [
-          'Your throwing-arm foot (same side as throwing hand)',
-          'Your non-throwing foot (opposite side from throwing hand)',
+          'The foot on the same side as your throwing hand',
+          'The foot on the opposite side from your throwing hand',
           'Whichever foot you last stepped with',
           'Either foot — it doesn\'t matter',
         ],
@@ -847,7 +847,7 @@ export const quizzes = [
         question: 'After you catch the disc, which direction should you try to face?',
         options: [
           'Toward the nearest sideline',
-          'Up field — toward the end zone you\'re attacking',
+          'Upfield — toward the end zone your team is trying to score in',
           'Back toward where the throw came from',
           'At the closest teammate',
         ],
@@ -862,12 +862,12 @@ export const quizzes = [
         options: [
           'Moving just your eyes, without moving your body',
           'Doing as many fakes as quickly as possible',
-          'Making the fake look exactly like a real throw — full body commitment',
+          'Making it look exactly like a real throw — move your whole body, not just your arm',
           'Only faking when the stall count reaches 5',
         ],
         correctIndex: 2,
         coachTip:
-          'A fake only works if the defender believes it! Full arm, shoulder, and hip commitment. Half-hearted fakes don\'t move defenders.',
+          'A fake only works if the defender believes it! Full arm, shoulder, and hip commitment. A lazy fake won\'t fool anyone.',
       },
       {
         id: 5,
@@ -894,7 +894,7 @@ export const quizzes = [
         ],
         correctIndex: 0,
         coachTip:
-          'Wait until just before release to look at your real target! If you stare at them during your fake, the defense reads your eyes and gets there first.',
+          'Wait until just before you throw to look at your real target! If you look at them too early, the defender sees where you\'re going and beats you there.',
       },
       // ── Fake types ────────────────────────────────────────────────────────
       {
@@ -916,7 +916,7 @@ export const quizzes = [
         question: 'What is a forehand-forehand fake?',
         options: [
           'Two forehand throws in a row to the same receiver',
-          'Faking forehand high (or outside), then throwing forehand low (or inside)',
+          'Faking your forehand high, then throwing it low — or faking outside and throwing inside',
           'Faking forehand, then switching to a backhand',
           'Pretending you don\'t know how to throw forehand',
         ],
@@ -937,21 +937,21 @@ export const quizzes = [
         ],
         correctIndex: 2,
         coachTip:
-          'Read the mark! If the defender is forcing one side, the other side may be open. Pivot, look for the open lane, and make them pay for overcommitting!',
+          'Read the mark! If the defender is blocking one side, the other side might be open. Pivot, look, and throw to the open space!',
       },
       // ── Full combo ────────────────────────────────────────────────────────
       {
         id: 10,
         question: 'Which of these best describes a successful pivot-and-fake combo?',
         options: [
-          'One convincing fake → pivot to the open angle → deliver to the open receiver',
+          'One good fake → pivot to the open side → throw to the open teammate',
           'Spinning in a full circle to confuse the defender',
           'Faking three times in a row, then throwing',
           'Pivoting only if the stall count reaches 7',
         ],
         correctIndex: 0,
         coachTip:
-          'Fake → Pivot → Throw! One convincing fake opens the lane. Pivot quickly to the new angle and deliver before the defense recovers. Simple and fast wins.',
+          'Fake → Pivot → Throw! One good fake moves the defender. Pivot fast to the open side and throw before they get back in position.',
       },
     ],
   },
