@@ -3,6 +3,8 @@ import ProgressBar from './ProgressBar'
 import FeedbackModal from './FeedbackModal'
 import ThrowingGuideModal    from './ThrowingGuideModal'
 import PancakeCatchGuideModal from './PancakeCatchGuideModal'
+import ForehandGuideModal     from './ForehandGuideModal'
+import PivotFakeGuideModal    from './PivotFakeGuideModal'
 
 import imgGripTop      from '../assets/grip-top.png'
 import imgGripUnder    from '../assets/grip-under.png'
@@ -35,6 +37,8 @@ const TIP_IMAGES = {
 const GUIDE_MODALS = {
   throwing: ThrowingGuideModal,
   pancake:  PancakeCatchGuideModal,
+  forehand: ForehandGuideModal,
+  pivot:    PivotFakeGuideModal,
 }
 
 // ─── Letter labels for the four answer buttons ───────────────────────────────

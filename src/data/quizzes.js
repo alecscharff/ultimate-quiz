@@ -630,4 +630,326 @@ export const quizzes = [
       },
     ],
   },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // QUIZ 5 — Forehand Throw: Level 3 Certification Prep
+  // hasGuide     → shows "Study Guide" button during the quiz
+  // certLevel    → shows certification submission on results screen
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'forehand',
+    title: 'Quiz 5: The Forehand Throw',
+    description: 'Level 3 cert prep — G·L·A·D·S!',
+    emoji: '🤙',
+    questionCount: 10,
+    estimatedMinutes: 6,
+    comingSoon: false,
+    hasGuide: true,
+    certLevel: 'Level 3 – Forehand Throw',
+    videoUrl: 'https://www.youtube.com/watch?v=Fbqj33iMIuM',
+    questions: [
+      // ── G: Grip ───────────────────────────────────────────────────────────
+      {
+        id: 1,
+        question: 'For the standard forehand grip, where do your fingers go on the disc?',
+        options: [
+          'Two fingers along the inside of the rim, two on the outside',
+          'All four fingers curled under the rim',
+          'Fingers spread wide on top like a high-five',
+          'Just your fingertips resting on the edge',
+        ],
+        correctIndex: 0,
+        // TODO: tipImageKey: 'forehand-grip-standard',
+        coachTip:
+          'Think "shake hands with the disc" — two fingers on the inside of the rim, two on the outside. Thumb stays on top. That\'s your forehand grip!',
+      },
+      {
+        id: 2,
+        question: 'Your grip isn\'t strong enough yet for the standard forehand. What training grip can you use?',
+        options: [
+          'Switch to a backhand grip instead',
+          'Split your two throwing fingers into a peace sign along the inside of the rim',
+          'Use your palm to push the disc',
+          'Hold the disc with just your thumb',
+        ],
+        correctIndex: 1,
+        // TODO: tipImageKey: 'forehand-grip-peace',
+        coachTip:
+          'The peace sign grip is a great stepping stone! Index and middle fingers side by side inside the rim. As your grip gets stronger, move to the standard two-finger grip.',
+      },
+      // ── L: Lock it ────────────────────────────────────────────────────────
+      {
+        id: 3,
+        question: 'How can you test if your forehand grip is tight enough before you throw?',
+        options: [
+          'The disc should feel loose so it can spin freely',
+          'Squeeze until your fingers are numb',
+          'Fake a throw — the disc should not move at all',
+          'Ask your coach to pull on it',
+        ],
+        correctIndex: 2,
+        // TODO: tipImageKey: 'forehand-grip-shake',
+        coachTip:
+          'Shake the disc — if it budges, tighten up! Lock it before you throw it. A slipping disc means a wobbly, off-target throw.',
+      },
+      // ── A: Aim ────────────────────────────────────────────────────────────
+      {
+        id: 4,
+        question: 'For a forehand throw, which direction should your chest face?',
+        options: [
+          'Side-on, throwing shoulder toward the target — same as a backhand',
+          'Away from your target',
+          'Directly at your target',
+          'It doesn\'t matter for a forehand',
+        ],
+        correctIndex: 2,
+        // TODO: tipImageKey: 'forehand-stance',
+        coachTip:
+          'Forehand stance is CHEST TO TARGET — the opposite of the backhand! Face your target, step out, and let your arm come through.',
+      },
+      {
+        id: 5,
+        question: 'What do you do with your free foot just before releasing the forehand?',
+        options: [
+          'Plant it firmly behind you',
+          'Keep both feet together',
+          'Lift it completely off the ground',
+          'Step out toward your target',
+        ],
+        correctIndex: 3,
+        // TODO: tipImageKey: 'forehand-stance',
+        coachTip:
+          'Step out with your free foot toward the target just before you throw. That step opens your hip and adds power and accuracy!',
+      },
+      // ── D: Disc angle ─────────────────────────────────────────────────────
+      {
+        id: 6,
+        question: 'How should the disc be angled throughout the entire forehand throw?',
+        options: [
+          'Parallel to the ground — flat all the way through',
+          'Tilted up in front to help it fly higher',
+          'Angled down slightly so it dips to the receiver',
+          'The angle doesn\'t matter as long as you have spin',
+        ],
+        correctIndex: 0,
+        // TODO: tipImageKey: 'forehand-angle',
+        coachTip:
+          'Flat is everything! Keep the disc parallel to the ground from start to finish. Any tilt and the throw goes off course.',
+      },
+      {
+        id: 7,
+        question: 'What happens if your disc tilts during a forehand throw?',
+        options: [
+          'It spins faster and goes farther',
+          'The throw curves or wobbles off target',
+          'It floats high and lands softly',
+          'Nothing — tilt doesn\'t affect the throw',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Tilt = trouble. Even a small tilt at release sends the disc curving or wobbling. Check your angle before you even start your motion!',
+      },
+      // ── S: Snap ───────────────────────────────────────────────────────────
+      {
+        id: 8,
+        question: 'Before you release a forehand, how is your wrist positioned?',
+        options: [
+          'Snapped forward toward the target',
+          'Flat and relaxed at your side',
+          'Bent back, loaded away from the target',
+          'Twisted inward toward your body',
+        ],
+        correctIndex: 2,
+        // TODO: tipImageKey: 'forehand-wrist',
+        coachTip:
+          'Load the wrist BACK first, then snap it FORWARD at release. That snap creates spin — and spin keeps the disc flying straight!',
+      },
+      {
+        id: 9,
+        question: 'What\'s the best drill to practice the wrist snap before adding your full arm?',
+        options: [
+          'Throw as hard as you can and gradually slow down',
+          'Hold your arm still and throw using only your wrist',
+          'Toss the disc up and catch it with the same hand',
+          'Watch someone else throw and copy their form',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Wrist-only throws are the best drill! Lock your arm in place and just snap the wrist. If you can throw 10 feet with just your wrist, you\'ve got the snap — now add the arm.',
+      },
+      {
+        id: 10,
+        question: 'The wrist snap for a forehand feels most like:',
+        options: [
+          'Waving hello to a friend',
+          'Turning a doorknob slowly',
+          'Catching a falling glass',
+          'Flicking something icky off your fingers',
+        ],
+        correctIndex: 3,
+        coachTip:
+          'EXACTLY — like flicking something gross off your fingers! Fast, sharp snap. You\'ll feel the disc roll off with spin. No snap = no spin = wobbly throw.',
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // QUIZ 6 — Pivot & Fake: Level 4 Certification Prep
+  // hasGuide     → shows "Study Guide" button during the quiz
+  // certLevel    → shows certification submission on results screen
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'pivot',
+    title: 'Quiz 6: Pivot & Fake',
+    description: 'Level 4 cert prep — create space, break the mark!',
+    emoji: '🕺',
+    questionCount: 10,
+    estimatedMinutes: 6,
+    comingSoon: false,
+    hasGuide: true,
+    certLevel: 'Level 4 – Pivot & Fake',
+    videoUrl: 'https://www.youtube.com/watch?v=gonrOw-6D1s',
+    questions: [
+      // ── Pivot foot ────────────────────────────────────────────────────────
+      {
+        id: 1,
+        question: 'Which foot is your pivot foot when you\'re holding the disc?',
+        options: [
+          'Your throwing-arm foot (same side as throwing hand)',
+          'Your non-throwing foot (opposite side from throwing hand)',
+          'Whichever foot you last stepped with',
+          'Either foot — it doesn\'t matter',
+        ],
+        correctIndex: 1,
+        // TODO: tipImageKey: 'pivot-foot',
+        coachTip:
+          'Opposite foot = pivot foot. Throw right? LEFT foot is the pivot — always. It stays planted while you hold the disc.',
+      },
+      {
+        id: 2,
+        question: 'What happens if you lift your pivot foot while holding the disc?',
+        options: [
+          'Nothing — pivot rules only apply when running',
+          'You get to take one extra step',
+          'It\'s called a travel — the other team gets the disc',
+          'The stall count resets',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Travel = turnover! Once your pivot foot is planted, it cannot leave the ground while you hold the disc. Use your FREE foot to pivot and open new lanes.',
+      },
+      // ── Face up field ─────────────────────────────────────────────────────
+      {
+        id: 3,
+        question: 'After you catch the disc, which direction should you try to face?',
+        options: [
+          'Toward the nearest sideline',
+          'Up field — toward the end zone you\'re attacking',
+          'Back toward where the throw came from',
+          'At the closest teammate',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Face up field! You\'ll see all your cutters, open lanes, and the whole offense spread out in front of you. It\'s the best starting position.',
+      },
+      // ── Selling the fake ──────────────────────────────────────────────────
+      {
+        id: 4,
+        question: 'What makes a fake effective in ultimate?',
+        options: [
+          'Moving just your eyes, without moving your body',
+          'Doing as many fakes as quickly as possible',
+          'Making the fake look exactly like a real throw — full body commitment',
+          'Only faking when the stall count reaches 5',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'A fake only works if the defender believes it! Full arm, shoulder, and hip commitment. Half-hearted fakes don\'t move defenders.',
+      },
+      {
+        id: 5,
+        question: 'How many convincing fakes do you typically need before throwing?',
+        options: [
+          'At least three to be safe',
+          'One — if it\'s convincing, one is enough',
+          'None — just throw quickly every time',
+          'As many as the stall count allows',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'One good fake is enough! Too many fakes wastes your stall count and gives the defense time to recover. Fake → Pivot → Throw!',
+      },
+      // ── Eye contact ───────────────────────────────────────────────────────
+      {
+        id: 6,
+        question: 'When should you make eye contact with the receiver you actually want to throw to?',
+        options: [
+          'Right before you release — not during the fake',
+          'During the fake, to signal that the real throw is coming next',
+          'After you release, so they know to look for it',
+          'Never — eye contact always tips off the defense',
+        ],
+        correctIndex: 0,
+        coachTip:
+          'Wait until just before release to look at your real target! If you stare at them during your fake, the defense reads your eyes and gets there first.',
+      },
+      // ── Fake types ────────────────────────────────────────────────────────
+      {
+        id: 7,
+        question: 'What is a backhand-forehand fake?',
+        options: [
+          'Faking a backhand throw, then pivoting to deliver a forehand',
+          'Throwing a backhand so hard it spins like a forehand',
+          'Faking a forehand, then throwing a backhand',
+          'A special throw that combines both grips',
+        ],
+        correctIndex: 0,
+        // TODO: tipImageKey: 'pivot-bh-fh-fake',
+        coachTip:
+          'Backhand-forehand fake: pump the backhand to pull the defender one way, then pivot to throw forehand the other way. The defender moves — the lane opens!',
+      },
+      {
+        id: 8,
+        question: 'What is a forehand-forehand fake?',
+        options: [
+          'Two forehand throws in a row to the same receiver',
+          'Faking forehand high (or outside), then throwing forehand low (or inside)',
+          'Faking forehand, then switching to a backhand',
+          'Pretending you don\'t know how to throw forehand',
+        ],
+        correctIndex: 1,
+        // TODO: tipImageKey: 'pivot-fh-fh-fake',
+        coachTip:
+          'Same arm, different spot! Fake high → throw low, or fake outside → throw inside. You don\'t need to change the throw type — just change where it\'s going.',
+      },
+      // ── Reading the mark ──────────────────────────────────────────────────
+      {
+        id: 9,
+        question: 'Your defender is standing to your right, trying to stop your backhand. What does this tell you?',
+        options: [
+          'You should only throw backhands — it\'s your strong side',
+          'Stop and wait for the defender to move',
+          'The forehand lane on the left might be open — pivot and look',
+          'Call a timeout immediately',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Read the mark! If the defender is forcing one side, the other side may be open. Pivot, look for the open lane, and make them pay for overcommitting!',
+      },
+      // ── Full combo ────────────────────────────────────────────────────────
+      {
+        id: 10,
+        question: 'Which of these best describes a successful pivot-and-fake combo?',
+        options: [
+          'One convincing fake → pivot to the open angle → deliver to the open receiver',
+          'Spinning in a full circle to confuse the defender',
+          'Faking three times in a row, then throwing',
+          'Pivoting only if the stall count reaches 7',
+        ],
+        correctIndex: 0,
+        coachTip:
+          'Fake → Pivot → Throw! One convincing fake opens the lane. Pivot quickly to the new angle and deliver before the defense recovers. Simple and fast wins.',
+      },
+    ],
+  },
 ]
