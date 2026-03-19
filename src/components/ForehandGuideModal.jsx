@@ -154,7 +154,7 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Lock the disc in a tight grip. If you shake the hand with disc, disc <strong>shouldn&apos;t budge</strong>.
+          Lock the disc in a tight grip. If you shake the hand with the disc, disc <strong>shouldn&apos;t budge</strong>.
         </p>
         <GifPlayer src={gifLockIt} alt="Shaking the disc to test grip — disc stays put" />
       </>
