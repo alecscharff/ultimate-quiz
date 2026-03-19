@@ -199,7 +199,7 @@ const STEPS = [
           off your fingers.
         </p>
         <img src={imgWristSnap} alt="Wrist loaded back, ready to snap forward" className="w-full rounded-lg object-contain mb-3" />
-        <p className="font-body text-xs text-gray-500 leading-relaxed">
+        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
           To practice, try <strong>wrist-only throws</strong> before adding your arm. If you can
           throw 10 feet with just your wrist, you&apos;ve got the snap.
         </p>
