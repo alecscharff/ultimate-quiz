@@ -760,7 +760,7 @@ export const quizzes = [
           'Keep it loose and relaxed',
           'It doesn\'t matter — just throw it hard',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         tipImageKey: 'forehand-wrist-snap',
         coachTip:
           'Pull the wrist BACK first, then snap it FORWARD when you throw. That snap creates spin — and spin keeps the disc flying straight!',
