@@ -129,7 +129,7 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Grip the disc with two fingers inside the rim,two on the outside. Thumb rests on top.
+          Grip the disc with two fingers inside the rim, two on the outside. Thumb rests on top.
         </p>
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="flex flex-col gap-1.5">
