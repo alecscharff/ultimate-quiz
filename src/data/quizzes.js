@@ -680,12 +680,12 @@ export const quizzes = [
       // ── L: Lock it ────────────────────────────────────────────────────────
       {
         id: 3,
-        question: 'How can you test if your forehand grip is tight enough before you throw?',
+        question: 'How loose or tight should your grip be?',
         options: [
-          'The disc should feel loose so it can spin freely',
-          'Squeeze until your fingers are numb',
-          'Fake a throw — the disc should not move at all',
-          'Ask your coach to pull on it',
+          'Very loose so the disc can spin freely',
+          'Squeeze until your fingers hurt',
+          'Tight enough that the disc is locked in place',
+          'It depends on the throw — sometimes loose, sometimes tight',
         ],
         correctIndex: 2,
         tipImageKey: 'forehand-lockit',
@@ -695,26 +695,26 @@ export const quizzes = [
       // ── A: Aim ────────────────────────────────────────────────────────────
       {
         id: 4,
-        question: 'For a forehand throw, which direction should your chest face?',
+        question: 'For a forehand throw, which direction should you face?',
         options: [
-          'Side-on, throwing shoulder toward the target — same as a backhand',
-          'Away from your target',
-          'Directly at your target',
-          'It doesn\'t matter for a forehand',
+          'Shoulder toward the target — same as a backhand',
+          'Back to the target',
+          'Chest facing directly at your target',
+          'Facing the sky',
         ],
         correctIndex: 2,
         tipImageKey: 'forehand-aim',
         coachTip:
-          'Forehand stance is CHEST TO TARGET — the opposite of the backhand! Backhand = side-on. Forehand = face your target. Step out and let your arm come through.',
+          'Forehand stance is CHEST TO TARGET. Backhand = side-on. Forehand = face your target.',
       },
       {
         id: 5,
         question: 'What do you do with your free foot just before releasing the forehand?',
         options: [
-          'Plant it firmly behind you',
+          'Step forward like throwing a ball',
           'Keep both feet together',
-          'Lift it completely off the ground',
-          'Step out toward your target',
+          'Step back and touch your knee to ground',
+          'Step out to the side',
         ],
         correctIndex: 3,
         tipImageKey: 'forehand-aim',
@@ -727,8 +727,8 @@ export const quizzes = [
         question: 'How should the disc be angled throughout the entire forehand throw?',
         options: [
           'Flat — level with the ground, the whole way through',
-          'Tilted up in front to help it fly higher',
-          'Angled down slightly so it dips to the receiver',
+          'Tilted up so it will fly high and far!',
+          'Angled side-down so it rolls to the receiver',
           'The angle doesn\'t matter as long as you have spin',
         ],
         correctIndex: 0,
@@ -753,21 +753,21 @@ export const quizzes = [
       // ── S: Snap ───────────────────────────────────────────────────────────
       {
         id: 8,
-        question: 'Before you release a forehand, how is your wrist positioned?',
+        question: 'What do you do with your wrist when throwing a forehand?',
         options: [
-          'Snapped forward toward the target',
-          'Flat and relaxed at your side',
-          'Bent back, away from your target',
-          'Twisted inward toward your body',
+          'Wrist starts bent back, then flicks forward to the target',
+          'Keep it straight for the throw',
+          'Keep it loose and relaxed',
+          'It doesn\'t matter — just throw it hard',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         tipImageKey: 'forehand-wrist-snap',
         coachTip:
           'Pull the wrist BACK first, then snap it FORWARD when you throw. That snap creates spin — and spin keeps the disc flying straight!',
       },
       {
         id: 9,
-        question: 'What\'s the best drill to practice the wrist snap before adding your full arm?',
+        question: 'What\'s a good way to practice the wrist snap before adding your full arm?',
         options: [
           'Throw as hard as you can and gradually slow down',
           'Hold your arm still and throw using only your wrist',
