@@ -129,8 +129,7 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          <strong>Shake hands with the disc.</strong> Standard grip: two fingers inside the rim,
-          two on the outside. Thumb rests on top.
+          Grip the disc with two fingers inside the rim,two on the outside. Thumb rests on top.
         </p>
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="flex flex-col gap-1.5">
@@ -140,8 +139,8 @@ const STEPS = [
             <img src={imgPeaceGrip} alt="Peace sign grip — index and middle fingers along inside rim" className="w-full rounded-lg object-contain" />
           </div>
         </div>
-        <p className="font-body text-xs text-gray-500 leading-relaxed">
-          If you&apos;re still building strength, try the <strong>peace sign grip</strong> — split
+        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
+          You can also try the <strong>peace sign grip</strong> — split
           your index and middle fingers along the inside of the rim. Transition to the standard grip
           as your grip gets stronger.
         </p>
