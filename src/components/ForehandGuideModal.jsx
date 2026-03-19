@@ -155,8 +155,7 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          The disc <strong>shouldn&apos;t budge</strong> on a fake. Test it before you throw —
-          shake the disc gently. If it moves, tighten up.
+          Lock the disc in a tight grip. If you shake the hand with disc, disc <strong>shouldn&apos;t budge</strong>.
         </p>
         <GifPlayer src={gifLockIt} alt="Shaking the disc to test grip — disc stays put" />
       </>
@@ -170,7 +169,7 @@ const STEPS = [
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
           <strong>Chest faces target</strong> — the opposite of the backhand! Step out with your
-          free foot toward the target just before you throw.
+          free foot toward the target before you throw.
         </p>
         <GifPlayer src={gifAim} alt="Forehand stance — chest to target, step out with free foot" />
       </>
@@ -183,8 +182,8 @@ const STEPS = [
     body: (
       <>
         <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          The disc must stay <strong>parallel to the ground</strong> throughout the entire throw.
-          Any tilt = off-course throw.
+          Keep the disc flat. If it were a pizza, the meatballs would not roll off.
+          If the disc is tilted, the throw will go off-course.
         </p>
         <img src={imgDiscAngle} alt="Disc held parallel to ground — flat angle throughout throw" className="w-full rounded-lg object-contain" />
       </>
@@ -202,7 +201,7 @@ const STEPS = [
         </p>
         <img src={imgWristSnap} alt="Wrist loaded back, ready to snap forward" className="w-full rounded-lg object-contain mb-3" />
         <p className="font-body text-xs text-gray-500 leading-relaxed">
-          Best drill: practice <strong>wrist-only throws</strong> before adding your arm. If you can
+          To practice, try <strong>wrist-only throws</strong> before adding your arm. If you can
           throw 10 feet with just your wrist, you&apos;ve got the snap.
         </p>
       </>
@@ -304,8 +303,7 @@ export default function ForehandGuideModal({ onClose, startLabel = 'Got it — b
             </div>
             <div className="px-4 py-3">
               <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-                Ultimate players need to throw from both sides of their body. The forehand —
-                also called the &ldquo;flick&rdquo; — might seem tricky at first, but many players
+                Ultimate players need to throw from both sides of their body. The forehand might seem tricky at first, but many players
                 find it easier to master than the backhand!
               </p>
               <GifPlayer src={gifAwesome} alt="Awesome forehand flick throw in action" />
