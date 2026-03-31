@@ -2,10 +2,13 @@
 // Triggered before Quiz 6 and via the "Study Guide" button during it.
 
 import { useEffect, useRef, useState } from 'react'
+import imgPivotFoot from '../assets/pivot_foot.jpg'
+import gifDumpPass        from '../assets/quiz6/dump-pass.gif'
+import gifFakeEmOut       from '../assets/quiz6/fake-em-out.gif'
+import gifFakeHighThrowLow from '../assets/quiz6/fake-high-throw-low.gif'
+import gifPracticePivotFake from '../assets/quiz6/practice-pivot-fake.gif'
 
 // ─── GIF duration helper ──────────────────────────────────────────────────────
-// Parses Graphics Control Extension blocks from the GIF binary to sum frame
-// delays (stored in centiseconds) and return total duration in milliseconds.
 function parseGifDurationMs(bytes) {
   let ms = 0
   for (let i = 0; i < bytes.length - 8; i++) {
@@ -13,12 +16,10 @@ function parseGifDurationMs(bytes) {
       ms += (bytes[i + 4] + bytes[i + 5] * 256) * 10
     }
   }
-  return ms || 3000 // fallback 3 s if no delay info found
+  return ms || 3000
 }
 
 // ─── GifPlayer ───────────────────────────────────────────────────────────────
-// Shows the first frame as a static poster (via canvas). Tap to play the
-// animation; it stops automatically after one full loop.
 function GifPlayer({ src, alt, className = '' }) {
   const [playing,     setPlaying]     = useState(false)
   const [posterReady, setPosterReady] = useState(false)
@@ -26,10 +27,8 @@ function GifPlayer({ src, alt, className = '' }) {
   const canvasRef = useRef(null)
   const timerRef  = useRef(null)
 
-  // On mount: capture first frame via Image, and parse GIF duration via fetch.
   useEffect(() => {
     let alive = true
-
     const img = new Image()
     img.onload = () => {
       if (!alive) return
@@ -41,12 +40,10 @@ function GifPlayer({ src, alt, className = '' }) {
       setPosterReady(true)
     }
     img.src = src
-
     fetch(src)
       .then(r => r.arrayBuffer())
       .then(buf => { if (alive) setDurationMs(parseGifDurationMs(new Uint8Array(buf))) })
       .catch(() => { if (alive) setDurationMs(3000) })
-
     return () => {
       alive = false
       clearTimeout(timerRef.current)
@@ -70,26 +67,17 @@ function GifPlayer({ src, alt, className = '' }) {
       role="button"
       aria-label={playing ? 'Stop animation' : 'Play animation'}
     >
-      {/* Canvas holds the first frame — visible only when paused and ready */}
       <canvas
         ref={canvasRef}
         className="w-full block"
         style={{ display: !playing && posterReady ? 'block' : 'none' }}
       />
-
-      {/* GIF only mounted while playing — forces restart from frame 1 each time */}
-      {playing && (
-        <img src={src} alt={alt} className="w-full block" />
-      )}
-
-      {/* Spinner while first frame is loading */}
+      {playing && <img src={src} alt={alt} className="w-full block" />}
       {!playing && !posterReady && (
         <div className="w-full h-24 flex items-center justify-center">
           <div className="w-5 h-5 border-2 border-gray-200 border-t-gray-400 rounded-full animate-spin" />
         </div>
       )}
-
-      {/* Tap-to-play overlay on the poster */}
       {!playing && posterReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-black/20">
           <div className="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center shadow-md">
@@ -100,8 +88,6 @@ function GifPlayer({ src, alt, className = '' }) {
           <span className="font-body font-bold text-white text-xs drop-shadow-md">Tap to play</span>
         </div>
       )}
-
-      {/* Tap-to-stop badge while playing */}
       {playing && (
         <div className="absolute bottom-2 right-2 flex items-center gap-1.5 bg-black/50 rounded-full px-2.5 py-1">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
@@ -112,132 +98,111 @@ function GifPlayer({ src, alt, className = '' }) {
   )
 }
 
-// ─── PlaceholderAsset ─────────────────────────────────────────────────────────
-// Renders a styled placeholder div until the real image/GIF asset is ready.
-function PlaceholderAsset({ emoji = '📸', label, className = '' }) {
-  return (
-    <div
-      className={`w-full rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center gap-2 py-6 px-4 ${className}`}
-    >
-      <span className="text-3xl" role="img" aria-hidden="true">{emoji}</span>
-      <p className="font-body text-xs text-gray-400 text-center leading-snug">{label}</p>
-    </div>
-  )
-}
-
 // ─── Guide sections ───────────────────────────────────────────────────────────
 const STEPS = [
   {
-    letter: '🦶',
-    word: 'Pivot Foot',
+    emoji: '🧠',
+    word: 'Stay Calm — Find the Dump',
+    accent: 'indigo',
+    body: (
+      <>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          It can feel stressful to throw when someone is right in your face! Good players stay
+          calm and use their skills. When the count gets close to 10, look for a nearby teammate
+          and throw them an easy <strong>"dump" pass</strong> to start the count over.
+        </p>
+        <GifPlayer src={gifDumpPass} alt="Player finds a nearby teammate for a dump pass" className="mt-3" />
+      </>
+    ),
+  },
+  {
+    emoji: '🦶',
+    word: 'Use Your Pivot Foot',
     accent: 'violet',
     body: (
       <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          The foot <strong>opposite your throwing hand</strong> is your pivot foot — it stays
-          planted while you hold the disc. <strong>Lift it = travel.</strong>
+        <p className="font-body text-sm text-gray-700 leading-relaxed mb-1">
+          Keep one foot planted on the ground — that&apos;s your <strong>pivot foot</strong>.
+          Then step out wide to the left or right with your other foot. This creates space
+          around the defender so you can throw!
         </p>
-        {/* TODO: replace with <PlaceholderAsset> or real img once asset is ready */}
-        <PlaceholderAsset emoji="📸" label="Pivot foot diagram — throwing hand right, left foot planted" />
+        <p className="font-body text-sm font-bold text-violet-700 mb-3">
+          One foot stays, one foot moves!
+        </p>
+        <img
+          src={imgPivotFoot}
+          alt="Pivot foot — one foot planted, one foot stepping wide"
+          className="w-full rounded-xl"
+        />
       </>
     ),
   },
   {
-    letter: '🔭',
-    word: 'Face Up Field',
-    accent: 'indigo',
-    body: (
-      <p className="font-body text-sm text-gray-700 leading-relaxed">
-        After catching, turn to <strong>face up field</strong> — toward the end zone you&apos;re
-        attacking. This gives you the best view of all your options: cutters, open lanes, and
-        the whole offense spread out in front of you.
-      </p>
-    ),
-  },
-  {
-    letter: '🎭',
-    word: 'Sell the Fake',
+    emoji: '🎭',
+    word: 'Fake \'Em Out!',
     accent: 'purple',
     body: (
       <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          A fake only works if the defender believes it. <strong>Full arm, shoulder, and hip
-          commitment</strong> — make it look exactly like a real throw.
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          Move your body quickly to one side like you&apos;re going to throw, but{' '}
+          <strong>don&apos;t let go!</strong> The defender will jump that way. Now throw to
+          the other side, where they left an opening.
         </p>
-        {/* TODO: replace with <GifPlayer src={imgBhFake} alt="Convincing backhand fake — full body commitment" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="Convincing backhand fake — full body commitment" />
+        <GifPlayer src={gifFakeEmOut} alt="Thrower fakes and the defender jumps, opening the other side" className="mt-3" />
       </>
     ),
   },
   {
-    letter: '👁',
-    word: 'Eye Contact',
+    emoji: '↕️',
+    word: 'Fake Low, Throw High',
     accent: 'pink',
     body: (
+      <>
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          Pretend you&apos;re about to throw up high, then send it low instead. Or pretend
+          you&apos;re throwing low, then send it high! The defender chases the fake — and your
+          real throw goes right past them. <strong>Fake high, throw low. Fake low, throw high!</strong>
+        </p>
+        <GifPlayer src={gifFakeHighThrowLow} alt="Fake high throw low — defender moves up, throw goes low" className="mt-3" />
+      </>
+    ),
+  },
+  {
+    emoji: '🖐️',
+    word: 'Learn Two Throws',
+    accent: 'teal',
+    body: (
       <p className="font-body text-sm text-gray-700 leading-relaxed">
-        Don&apos;t stare at your real target too early — the defense will read your eyes. Wait
-        until <strong>just before release</strong> to look at who you&apos;re throwing to.
+        When practicing, keep working on both your <strong>backhand</strong> and{' '}
+        <strong>forehand</strong> throws so that you can throw from either side of your body.
+        If you only have one throw, the defender just blocks it — two throws means they
+        can&apos;t stop you!
       </p>
     ),
   },
   {
-    letter: '⚡',
-    word: 'One Good Fake',
-    accent: 'teal',
-    body: (
-      <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          One convincing fake is enough. Too many fakes wastes your stall count and gives the
-          defense time to recover. <strong>Fake → Pivot → Throw.</strong>
-        </p>
-        {/* TODO: replace with <GifPlayer src={imgFakePivotThrow} alt="One fake, pivot, throw — full combo" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="One fake, pivot, throw — full combo" />
-      </>
-    ),
-  },
-]
-
-const FAKE_TYPES = [
-  {
-    letter: '↔',
-    word: 'Backhand → Forehand Fake',
+    emoji: '🔄',
+    word: 'Always Practice Faking & Pivoting',
     accent: 'emerald',
     body: (
       <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Pump the backhand to move the defender one way, then <strong>pivot to throw forehand</strong> the
-          other way.
+        <p className="font-body text-sm text-gray-700 leading-relaxed">
+          Whenever you practice your throws, be sure to practice your faking and pivoting too.
+          Faking and pivoting are <strong>the most important skills</strong> for being a great thrower.
         </p>
-        {/* TODO: replace with <GifPlayer src={imgBhFhFake} alt="Backhand-forehand fake combo" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="Backhand-forehand fake combo" />
-      </>
-    ),
-  },
-  {
-    letter: '↕',
-    word: 'Forehand → Forehand Fake',
-    accent: 'orange',
-    body: (
-      <>
-        <p className="font-body text-sm text-gray-700 leading-relaxed mb-3">
-          Fake forehand <strong>high</strong> (or outside), then deliver forehand <strong>low</strong> (or
-          inside). Same arm, different target.
-        </p>
-        {/* TODO: replace with <GifPlayer src={imgFhFhFake} alt="Forehand-forehand fake — high to low" /> once asset is ready */}
-        <PlaceholderAsset emoji="🎬" label="Forehand-forehand fake — high to low" />
+        <GifPlayer src={gifPracticePivotFake} alt="Players practicing pivot and fake drills" className="mt-3" />
       </>
     ),
   },
 ]
 
 const ACCENT = {
-  violet:  { header: 'bg-violet-600',  light: 'bg-violet-50',  border: 'border-violet-200'  },
   indigo:  { header: 'bg-indigo-600',  light: 'bg-indigo-50',  border: 'border-indigo-200'  },
+  violet:  { header: 'bg-violet-600',  light: 'bg-violet-50',  border: 'border-violet-200'  },
   purple:  { header: 'bg-purple-600',  light: 'bg-purple-50',  border: 'border-purple-200'  },
   pink:    { header: 'bg-pink-500',    light: 'bg-pink-50',    border: 'border-pink-200'    },
   teal:    { header: 'bg-teal-500',    light: 'bg-teal-50',    border: 'border-teal-200'    },
   emerald: { header: 'bg-emerald-600', light: 'bg-emerald-50', border: 'border-emerald-200' },
-  orange:  { header: 'bg-orange-500',  light: 'bg-orange-50',  border: 'border-orange-200'  },
 }
 
 export default function PivotFakeGuideModal({ onClose, startLabel = 'Got it — back to the quiz!', targetRect = null }) {
@@ -309,15 +274,13 @@ export default function PivotFakeGuideModal({ onClose, startLabel = 'Got it — 
 
         {/* Scrollable content */}
         <div className="overflow-y-auto flex-1 px-5 py-5 space-y-4">
-
-          {/* Core pivot & fake steps */}
-          {STEPS.map(({ letter, word, accent, body }) => {
+          {STEPS.map(({ emoji, word, accent, body }) => {
             const { header, light, border } = ACCENT[accent]
             return (
               <div key={word} className={`rounded-2xl border-2 ${border} ${light} overflow-hidden`}>
                 <div className={`${header} px-4 py-2 flex items-center gap-2`}>
                   <span className="font-display text-white text-xl leading-none w-7 text-center">
-                    {letter}
+                    {emoji}
                   </span>
                   <span className="font-display text-white text-base">{word}</span>
                 </div>
@@ -325,27 +288,6 @@ export default function PivotFakeGuideModal({ onClose, startLabel = 'Got it — 
               </div>
             )
           })}
-
-          {/* Fake types section divider */}
-          <div className="pt-1">
-            <p className="font-display text-sm text-gray-400 uppercase tracking-wider mb-3 px-1">
-              Fake Types
-            </p>
-            {FAKE_TYPES.map(({ letter, word, accent, body }) => {
-              const { header, light, border } = ACCENT[accent]
-              return (
-                <div key={word} className={`rounded-2xl border-2 ${border} ${light} overflow-hidden mb-4`}>
-                  <div className={`${header} px-4 py-2 flex items-center gap-2`}>
-                    <span className="font-display text-white text-xl leading-none w-7 text-center">
-                      {letter}
-                    </span>
-                    <span className="font-display text-white text-base">{word}</span>
-                  </div>
-                  <div className="px-4 py-3">{body}</div>
-                </div>
-              )
-            })}
-          </div>
 
           <p className="font-body text-xs text-gray-400 text-center pb-1">
             This is an open-book quiz — refer back anytime!

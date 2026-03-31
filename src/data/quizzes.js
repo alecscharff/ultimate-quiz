@@ -808,150 +808,146 @@ export const quizzes = [
     emoji: '🕺',
     questionCount: 10,
     estimatedMinutes: 6,
-    comingSoon: true,
     hasGuide: true,
     certLevel: 'Level 4 – Pivot & Fake',
     videoUrl: 'https://www.youtube.com/watch?v=gonrOw-6D1s',
     questions: [
-      // ── Pivot foot ────────────────────────────────────────────────────────
+      // ── Stay calm / dump ──────────────────────────────────────────────────
       {
         id: 1,
-        question: 'Which foot is your pivot foot when you\'re holding the disc?',
+        question: 'The count is almost at 10 and you\'re feeling stressed. What should you do?',
         options: [
-          'The foot on the same side as your throwing hand',
-          'The foot on the opposite side from your throwing hand',
-          'Whichever foot you last stepped with',
-          'Either foot — it doesn\'t matter',
+          'Throw the disc as far as you can',
+          'Find a nearby teammate for a quick "dump" pass to start the count over',
+          'Call a timeout right away',
+          'Stand still and wait for the defender to back off',
         ],
         correctIndex: 1,
-        // TODO: tipImageKey: 'pivot-foot',
         coachTip:
-          'Opposite foot = pivot foot. Throw right? LEFT foot is the pivot — always. It stays planted while you hold the disc.',
+          'A "dump" pass to a nearby teammate starts the count over at zero! Good players do this all the time when the pressure gets high.',
       },
+      // ── Pivot foot ────────────────────────────────────────────────────────
       {
         id: 2,
-        question: 'What happens if you lift your pivot foot while holding the disc?',
+        question: 'When you\'re holding the disc, what is your pivot foot?',
         options: [
-          'Nothing — pivot rules only apply when running',
-          'You get to take one extra step',
-          'It\'s called a travel — the other team gets the disc',
-          'The stall count resets',
-        ],
-        correctIndex: 2,
-        coachTip:
-          'Travel = turnover! Once your pivot foot is planted, it cannot leave the ground while you hold the disc. Use your FREE foot to pivot and open new lanes.',
-      },
-      // ── Face up field ─────────────────────────────────────────────────────
-      {
-        id: 3,
-        question: 'After you catch the disc, which direction should you try to face?',
-        options: [
-          'Toward the nearest sideline',
-          'Upfield — toward the end zone your team is trying to score in',
-          'Back toward where the throw came from',
-          'At the closest teammate',
+          'The foot on your throwing-hand side',
+          'The foot you keep planted on the ground',
+          'The foot you use to run toward the end zone',
+          'Either foot — it changes each time you catch',
         ],
         correctIndex: 1,
         coachTip:
-          'Face up field! You\'ll see all your cutters, open lanes, and the whole offense spread out in front of you. It\'s the best starting position.',
+          'Your pivot foot stays planted the whole time you hold the disc. If it moves, it\'s a travel — and the other team gets the disc!',
       },
-      // ── Selling the fake ──────────────────────────────────────────────────
       {
-        id: 4,
-        question: 'What makes a fake effective in ultimate?',
+        id: 3,
+        question: 'How do you create space to throw when a defender is guarding you?',
         options: [
-          'Moving just your eyes, without moving your body',
-          'Doing as many fakes as quickly as possible',
-          'Making it look exactly like a real throw — move your whole body, not just your arm',
-          'Only faking when the stall count reaches 5',
+          'Spin in a full circle to confuse the defender',
+          'Take a big step backward',
+          'Step out wide to the left or right with your free foot',
+          'Jump up and throw over them',
         ],
         correctIndex: 2,
         coachTip:
-          'A fake only works if the defender believes it! Full arm, shoulder, and hip commitment. A lazy fake won\'t fool anyone.',
+          'Step wide left or right — one foot stays (pivot), one foot moves! Stepping wide pushes the defender aside and makes room to throw.',
+      },
+      // ── Fake ─────────────────────────────────────────────────────────────
+      {
+        id: 4,
+        question: 'When you fake, you move like you\'re about to throw — but what do you NOT do?',
+        options: [
+          'Move your arms',
+          'Step with your free foot',
+          'Release the disc',
+          'Look at a receiver',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'A fake looks exactly like a real throw — except you hold on! Don\'t release the disc. Make the defender think you\'re throwing, then throw the other way.',
       },
       {
         id: 5,
-        question: 'How many convincing fakes do you typically need before throwing?',
+        question: 'After you fake and the defender jumps one way, what do you do?',
         options: [
-          'At least three to be safe',
-          'One — if it\'s convincing, one is enough',
-          'None — just throw quickly every time',
-          'As many as the stall count allows',
-        ],
-        correctIndex: 1,
-        coachTip:
-          'One good fake is enough! Too many fakes wastes your stall count and gives the defense time to recover. Fake → Pivot → Throw!',
-      },
-      // ── Eye contact ───────────────────────────────────────────────────────
-      {
-        id: 6,
-        question: 'When should you make eye contact with the receiver you actually want to throw to?',
-        options: [
-          'Right before you release — not during the fake',
-          'During the fake, to signal that the real throw is coming next',
-          'After you release, so they know to look for it',
-          'Never — eye contact always tips off the defense',
-        ],
-        correctIndex: 0,
-        coachTip:
-          'Wait until just before you throw to look at your real target! If you look at them too early, the defender sees where you\'re going and beats you there.',
-      },
-      // ── Fake types ────────────────────────────────────────────────────────
-      {
-        id: 7,
-        question: 'What is a backhand-forehand fake?',
-        options: [
-          'Faking a backhand throw, then pivoting to deliver a forehand',
-          'Throwing a backhand so hard it spins like a forehand',
-          'Faking a forehand, then throwing a backhand',
-          'A special throw that combines both grips',
-        ],
-        correctIndex: 0,
-        // TODO: tipImageKey: 'pivot-bh-fh-fake',
-        coachTip:
-          'Backhand-forehand fake: pump the backhand to pull the defender one way, then pivot to throw forehand the other way. The defender moves — the lane opens!',
-      },
-      {
-        id: 8,
-        question: 'What is a forehand-forehand fake?',
-        options: [
-          'Two forehand throws in a row to the same receiver',
-          'Faking your forehand high, then throwing it low — or faking outside and throwing inside',
-          'Faking forehand, then switching to a backhand',
-          'Pretending you don\'t know how to throw forehand',
-        ],
-        correctIndex: 1,
-        // TODO: tipImageKey: 'pivot-fh-fh-fake',
-        coachTip:
-          'Same arm, different spot! Fake high → throw low, or fake outside → throw inside. You don\'t need to change the throw type — just change where it\'s going.',
-      },
-      // ── Reading the mark ──────────────────────────────────────────────────
-      {
-        id: 9,
-        question: 'Your defender is standing to your right, trying to stop your backhand. What does this tell you?',
-        options: [
-          'You should only throw backhands — it\'s your strong side',
-          'Stop and wait for the defender to move',
-          'The forehand lane on the left might be open — pivot and look',
-          'Call a timeout immediately',
+          'Fake again to the same side',
+          'Wait for them to get back in position, then throw',
+          'Throw to the other side where they left an opening',
+          'Call a timeout',
         ],
         correctIndex: 2,
         coachTip:
-          'Read the mark! If the defender is blocking one side, the other side might be open. Pivot, look, and throw to the open space!',
+          'The fake works when the defender moves! As soon as they jump, pivot to the open side and throw. Move fast before they recover.',
+      },
+      // ── Fake low / throw high ─────────────────────────────────────────────
+      {
+        id: 6,
+        question: 'If you fake your throw high, where should your actual throw go?',
+        options: [
+          'High — keep fooling them!',
+          'To the side',
+          'Backwards',
+          'Low',
+        ],
+        correctIndex: 3,
+        coachTip:
+          'Fake high, throw low! The defender moves up to block the high throw — send it low through the gap they left.',
+      },
+      {
+        id: 7,
+        question: 'If you fake your throw low, where should your actual throw go?',
+        options: [
+          'Low — same direction',
+          'High',
+          'Backward',
+          'Sideways',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'Fake low, throw high! Drop like you\'re going for the low throw — when the defender bends down to block it, send it up high.',
+      },
+      // ── Two throws ────────────────────────────────────────────────────────
+      {
+        id: 8,
+        question: 'Why is it important to practice BOTH backhand and forehand throws?',
+        options: [
+          'The rules require equal use of both throws',
+          'So you can throw from either side of your body — they can\'t stop both!',
+          'Forehand throws travel farther',
+          'You only need one good throw — stick to your best',
+        ],
+        correctIndex: 1,
+        coachTip:
+          'If you can only throw backhand, the defender just blocks the backhand — easy! Two throws means they can\'t stop you.',
+      },
+      // ── Practice ─────────────────────────────────────────────────────────
+      {
+        id: 9,
+        question: 'When should you practice your faking and pivoting?',
+        options: [
+          'Only in games when the pressure is real',
+          'After you\'ve already perfected your throws',
+          'Whenever you practice your throws',
+          'Only when a coach tells you to',
+        ],
+        correctIndex: 2,
+        coachTip:
+          'Faking and pivoting are essential throwing skills! Practice them every time you practice throwing, not just in games.',
       },
       // ── Full combo ────────────────────────────────────────────────────────
       {
         id: 10,
-        question: 'Which of these best describes a successful pivot-and-fake combo?',
+        question: 'Which of these best describes the pivot-and-fake combo?',
         options: [
-          'One good fake → pivot to the open side → throw to the open teammate',
-          'Spinning in a full circle to confuse the defender',
-          'Faking three times in a row, then throwing',
-          'Pivoting only if the stall count reaches 7',
+          'Wait for the stall count to reach 9, then throw fast',
+          'Fake to move the defender, pivot to the open side, throw',
+          'Pivot one way, watch the defender move, then freeze',
+          'Throw as quickly as possible without faking',
         ],
-        correctIndex: 0,
+        correctIndex: 1,
         coachTip:
-          'Fake → Pivot → Throw! One good fake moves the defender. Pivot fast to the open side and throw before they get back in position.',
+          'Fake → Pivot → Throw! One good fake moves the defender. Pivot fast to the open side and throw before they recover.',
       },
     ],
   },
